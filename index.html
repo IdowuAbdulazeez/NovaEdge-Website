@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novaedge Services Limited - Home Care in Huddersfield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #E0F2FE;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-orange {
+      background-color: var(--accent-orange);
+      color: #FFFFFF;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-sky {
+      background-color: var(--bright-blue);
+      color: #FFFFFF;
+    }
+    .btn-sky:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--primary-navy);
+      border: 1px solid var(--border-color);
+    }
+    .btn-white:hover {
+      background-color: #F8FAFC;
+    }
+
+    .img-placeholder {
+      background: linear-gradient(135deg, #CBD5E1 0%, #94A3B8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #1E293B;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ==========================================================================
+       HERO & NAVIGATION
+       ========================================================================== */
+    .hero-wrapper {
+       position: relative;
+       width: 100%;
+       aspect-ratio: 16 / 9; 
+       min-height: 720px;
+       background-color: var(--navy-dark);
+       color: #FFFFFF;
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-end;
+       padding-top: 100px;
+       padding-bottom: 60px;
+       overflow: hidden;
+       box-sizing: border-box;
+    }
+
+    .hero-bg-placeholder {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+   .hero-bg-placeholder::after {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: radial-gradient(
+       ellipse at 50% 40%, 
+     rgba(10, 34, 64, 0.10) 0%, 
+     rgba(10, 34, 64, 0.50) 55%, 
+     rgba(6, 22, 43, 0.90) 88%
+    );
+    z-index: 2;
+   }
+
+    .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-badge {
+      width: 34px;
+      height: 34px;
+      background: var(--primary-navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .hero-content {
+      max-width: 680px;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: #CBD5E1;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* ==========================================================================
+       WHO WE SUPPORT
+       ========================================================================== */
+    .who-we-support {
+      padding: 90px 0 70px;
+      background: #FFFFFF;
+    }
+
+    .section-header-line {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .section-title-orange {
+      color: var(--accent-orange);
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .header-divider {
+      flex: 1;
+      height: 2px;
+      background-color: #FED7AA;
+      margin-bottom: 3px;
+    }
+
+    .support-desc {
+      max-width: 820px;
+      margin-left: auto;
+      margin-bottom: 60px;
+    }
+
+    .support-desc p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .support-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .support-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 10px;
+    }
+
+    .support-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       CQC REGISTRATION BANNER
+       ========================================================================== */
+    .cqc-bar {
+      background-color: var(--bright-blue);
+      color: #FFFFFF;
+      padding: 24px 0;
+    }
+
+    .cqc-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cqc-badge-square {
+      width: 72px;
+      height: 72px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .cqc-badge-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .cqc-bar-text {
+      font-size: 0.98rem;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       CARE BACKED BY EXPERIENCE
+       ========================================================================== */
+    .backed-by-exp {
+      padding: 90px 0;
+      background-color: var(--bg-light);
+    }
+
+    .backed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .section-heading-dark {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .bento-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .bento-badge-card {
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bento-info-card {
+      background: #FFFFFF;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .bento-info-card h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .bento-info-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+   .bento-large-blue-card {
+     height: 100%;
+     background: var(--primary-navy);
+     color: #FFFFFF;
+     padding: 44px;
+     border-radius: var(--radius-lg);
+     position: relative;
+     overflow: hidden;
+     display: flex;
+     flex-direction: column;
+    }
+
+    .bento-card-footer-img {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bento-inner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .bento-large-blue-card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .bento-large-blue-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #CBD5E1;
+      margin-bottom: 16px;
+    }
+
+    .bento-top-graphic {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 220px;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bento-img-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .bento-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .bento-card-content {
+      position: relative;
+      z-index: 2;
+     margin-top: 90px;
+    }
+
+    /* ==========================================================================
+       WHY FAMILIES IN KIRKLEES CHOOSE NOVAEDGE
+       ========================================================================== */
+    .why-choose {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .why-choose-container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .why-choose-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 44px;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #F1F4F8;
+      padding: 32px 28px;
+      border-radius: 20px;
+    }
+
+    .feature-icon-badge {
+      width: 42px;
+      height: 42px;
+      background-color: #FFF2EA;
+      color: var(--accent-orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .feature-card h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       OUR HOME CARE SERVICES
+       ========================================================================== */
+    .our-services {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .services-top-bar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .services-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .services-3x3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-image-card {
+      position: relative;
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .service-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6, 22, 43, 0.95) 0%, rgba(6, 22, 43, 0.25) 60%, transparent 100%);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #FFFFFF;
+    }
+
+    .service-card-overlay h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .service-card-overlay p {
+      font-size: 0.85rem;
+      color: #CBD5E1;
+      line-height: 1.5;
+    }
+
+    .service-corner-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       SERVING HUDDERSFIELD OVERLAY BANNER
+       ========================================================================== */
+    .serving-banner-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .serving-banner-wrapper {
+      position: relative;
+      border-radius: 0 !important;
+      overflow: hidden;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .serving-bg-placeholder {
+      position: absolute;
+      inset: 0;
+      background: #475569;
+      z-index: 1;
+    }
+
+    .serving-overlay-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(10, 34, 64, 0.94);
+      backdrop-filter: blur(10px);
+      padding: 48px;
+      border-radius: 24px;
+      max-width: 780px;
+      width: 100%;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      margin: 0 auto;
+    }
+
+    .serving-overlay-card h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .serving-overlay-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #E2E8F0;
+      margin-bottom: 16px;
+    }
+
+    .serving-overlay-card .btn {
+      margin-top: 12px;
+    }
+
+    /* ==========================================================================
+       GETTING STARTED IS SIMPLE
+       ========================================================================== */
+    .getting-started {
+      padding: 90px 0;
+      background-color: var(--bg-light);
+    }
+
+    .getting-started-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 60px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 48px;
+      margin-bottom: 32px;
+    }
+
+    .step-item-outer {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .step-number-outside {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #CBD5E1;
+      line-height: 1;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .step-card-box {
+      background: #FFFFFF;
+      padding: 28px 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      flex: 1;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .step-icon-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .step-content h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .steps-step5-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step5-item-outer {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      max-width: 680px;
+    }
+
+    /* ==========================================================================
+       WHAT IT COSTS & OUR PROMISE
+       ========================================================================== */
+    .costs-promise {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .costs-promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .costs-col h3, .promise-col h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 20px;
+    }
+
+    .costs-col p, .promise-col p {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .promise-card-light {
+      background: var(--bg-card);
+      padding: 36px;
+      border-radius: var(--radius-lg);
+    }
+
+    /* ==========================================================================
+       FREQUENTLY ASKED QUESTIONS
+       ========================================================================== */
+    .faq-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+    }
+
+    .faq-left h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+    }
+
+    .faq-left p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: all 0.25s ease;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .faq-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 250px;
+      margin-top: 14px;
+    }
+
+    /* ==========================================================================
+       SPEAK TO OUR TEAM
+       ========================================================================== */
+    .speak-team {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .speak-team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .speak-team-left .section-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .speak-team-left h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .speak-team-left p.sub-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .contact-info-pill {
+      background: var(--bg-light);
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .contact-icon-circle {
+      width: 44px;
+      height: 44px;
+      background: var(--sky-blue-light);
+      color: var(--bright-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-info-pill .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .contact-info-pill .value {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    .related-pages-wrapper {
+      margin-top: 32px;
+    }
+
+    .related-pages-wrapper h5 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+    }
+
+    .related-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .related-pill {
+      background: var(--bg-light);
+      padding: 8px 16px;
+      border-radius: var(--radius-btn);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .related-pill.active {
+      background: var(--sky-blue-light);
+      color: var(--bright-blue);
+    }
+
+    .speak-team-right-img {
+      height: 480px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      padding: 60px 0 40px;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--bright-blue);
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .cqc-brand-text {
+      font-weight: 800;
+      color: var(--primary-navy);
+      font-size: 1.1rem;
+    }
+
+    .cqc-status-pill {
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      color: var(--accent-orange);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .giant-footer-text {
+      font-size: 7.5rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 0.9;
+      margin-top: 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE CORRECTIONS ONLY)
+       ========================================================================== */
+        /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE CORRECTIONS ONLY)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .services-3x3-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-wrapper {
+        min-height: 640px;
+        aspect-ratio: auto;
+      }
+      .section-heading-dark,
+      .why-choose-title,
+      .getting-started-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link span {
+        display: none;
+      }
+
+      .hero-wrapper {
+        width: 100%;
+        min-height: 0;
+        aspect-ratio: auto;
+        padding-top: 100px;
+        padding-bottom: 36px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: 1.65rem;
+        line-height: 1.3;
+      }
+
+      .hero-title br {
+        display: none;
+      }
+
+      .hero-subtitle {
+        font-size: 0.85rem;
+        max-width: 100%;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .support-cards-row,
+      .features-grid,
+      .steps-grid,
+      .costs-promise-grid,
+      .speak-team-grid,
+      .faq-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .services-3x3-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-image-card {
+        height: 300px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .giant-footer-text {
+        font-size: 3.2rem;
+      }
+
+      .footer-cqc-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .steps-step5-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .step-item-outer,
+      .step5-item-outer {
+        padding-left: 64px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .step-number-outside {
+        font-size: 2.4rem !important;
+      }
+
+      .bento-card-content {
+        margin-top: 60px;
+      }
+
+      .bento-large-blue-card {
+        padding: 28px 24px;
+      }
+
+      .bento-img-card {
+        height: auto !important;
+        min-height: 220px;
+      }
+
+      .serving-overlay-card {
+        margin-top: -80px !important;
+        padding: 28px 18px !important;
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+      }
+
+      .serving-bg-placeholder {
+        height: 280px !important;
+        position: relative !important;
+      }
+
+      .serving-banner-wrapper {
+        min-height: 0;
+        padding: 0 0 24px;
+        display: block;
+      }
+
+      .who-we-support,
+      .backed-by-exp,
+      .why-choose,
+      .our-services,
+      .getting-started,
+      .costs-promise,
+      .faq-section,
+      .speak-team {
+        padding: 56px 0;
+      }
+
+      .section-title-orange {
+        font-size: 1.45rem;
+        white-space: normal;
+      }
+
+      .section-header-line {
+        flex-wrap: wrap;
+      }
+
+      .support-desc {
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      .backed-header,
+      .services-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .faq-left {
+        margin-bottom: 20px;
+      }
+
+      .speak-team-right-img {
+        height: 280px !important;
+        min-width: 0 !important;
+        width: 100%;
+      }
+
+      .costs-col,
+      .promise-col,
+      .speak-team-left {
+        min-width: 0 !important;
+        width: 100%;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .nav-actions .phone-link {
+      display: none !important;
+      }
+
+      .nav-links .mobile-phone {
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       font-weight: 700;
+       color: var(--primary-navy);
+       padding: 4px 0 8px;
+      }
+
+     .nav-actions .btn {
+       white-space: nowrap;
+       padding: 8px 12px;
+       font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.45rem;
+      }
+
+      .service-image-card {
+        height: 260px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+
+      .cqc-badge-square {
+        width: 56px;
+        height: 56px;
+      }
+
+      .cqc-bar-inner {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+  .speak-team-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .speak-team-left,
+  .speak-team-right-img {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .speak-team-right-img {
+    height: 260px !important;
+  }
+
+  .contact-info-pill {
+    min-width: 0;
+  }
+
+  .contact-info-pill .value {
+    font-size: 15px !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footer-cqc-box > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .footer-cqc-box > div:first-child > div:last-child {
+    white-space: normal !important;
+    text-align: left !important;
+    font-size: 13px !important;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- HERO & NAVIGATION -->
+  <section class="hero-wrapper">
+    <div class="hero-bg-placeholder">
+      <img src="Hero.png" alt="Hero Carer and Patient" class="hero-img">
+    </div>
+
+    <header class="navbar">
+      <a href="#" class="logo">
+        <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#how-we-work">How We Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#funding">Funding Your Care</a></li>
+          <li><a href="#areas">Areas We Cover</a></li>
+          <li><a href="#safeguarding">Safeguarding</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:02084081570" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+        <span style="font-weight: 700;">020 8408 1570</span>
+        </a>
+        <a href="#contact" class="btn btn-navy">Get in Touch</a>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Home Care in Huddersfield and<br>
+          Across Kirklees, Built Around<br>
+          the Person, Not the Rota
+        </h1>
+        <p class="hero-subtitle">Most people do not want care. They want their own kitchen, their own chair, their own routine, and the freedom to carry on being themselves. Care is simply what makes that possible when washing, dressing, cooking or remembering the tablets has become harder than it used to be. That is the whole of our job: to give back the parts of the day that have slipped away, and to leave everything else exactly as you like it.</p>
+        <div class="hero-btns">
+          <a href="tel:07438972366" class="btn btn-white" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #0080ff;">
+          <img src="Call-Icon2.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+          <span>07438 972366</span>
+          </a>
+          <a href="#contact" class="btn btn-navy">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SUPPORT -->
+  <section class="who-we-support">
+    <div class="container">
+      <div class="section-header-line">
+        <h2 class="section-title-orange">WHO WE SUPPORT</h2>
+        <div class="header-divider"></div>
+      </div>
+
+      <div class="support-desc">
+        <p><strong>Novaedge Services Limited is a domiciliary care provider based in the centre of Huddersfield. We support adults in their own homes across the Metropolitan Borough of Kirklees, including Huddersfield, Dewsbury, Batley, Holmfirth, Mirfield, Cleckheaton and the Colne and Holme valleys.</strong></p>
+        <p>We support adults aged 18 to 65, adults aged 65 and over, people living with a physical disability and people living with dementia. We are a small, deliberately local service, run by two named people you can actually reach. That is not a limitation we are apologising for. It is the design. When the person answering the phone at nine in the evening is the same person who wrote your care plan, problems get solved instead of logged.</p>
+        <a href="#contact" class="btn btn-navy" style="margin-top: 10px;">Get in Touch</a>
+      </div>
+
+      <div class="support-cards-row">
+        <div class="support-card">
+          <h3>Aged 18 to 65</h3>
+          <p>Supporting adults aged 18 and above with tailored, person-centred care.</p>
+        </div>
+        <div class="support-card">
+          <h3>Aged 65+</h3>
+          <p>Specialist care designed for older adults to maintain independence at home.</p>
+        </div>
+        <div class="support-card">
+          <h3>24/7 Support</h3>
+          <p>Speak directly with the people responsible for your care, not a call centre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CQC REGISTRATION BANNER -->
+  <section class="cqc-bar">
+    <div class="container cqc-bar-inner">
+        <div class="cqc-badge-square">
+            <img src="CQC-Logo.png" alt="CQC Logo" class="cqc-badge-img">
+        </div>
+      <div class="cqc-bar-text">
+        Novaedge Services Limited has applied to the Care Quality Commission for registration to provide the regulated activity of personal care. Care will begin once that registration is granted. We say so plainly here because you deserve to know exactly where we stand before you speak to us.
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE BACKED BY EXPERIENCE -->
+  <section class="backed-by-exp" id="about">
+    <div class="container">
+      <div class="backed-header">
+        <h2 class="section-heading-dark">Care Backed by Experience</h2>
+        <a href="#about" class="btn btn-white">About Novaedge ↗</a>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-col">
+          <div class="bento-badge-card">
+            <strong>Novaedge Services Limited</strong> is registered in England and Wales, company number 16962542.
+          </div>
+          <div class="bento-img-card" style="flex: 1; min-height: 280px;">
+            <img src="carer-desk.png" alt="Carer assisting at desk" class="bento-img">
+          </div>
+        </div>
+
+        <div class="bento-col">
+          <div class="bento-img-card" style="height: 360px;">
+            <img src="registered-manager.png" alt="Registered Manager Portrait" class="bento-img">
+          </div>
+          <div class="bento-info-card" style="flex: 1;">
+            <h4>Based in Huddersfield</h4>
+            <p>We operate from an office in the centre of Huddersfield, and every hour of care we provide is delivered in someone's own home. No care is delivered at the office. It is where the rotas are built, the training happens and the on call phone sits.</p>
+          </div>
+        </div>
+
+        <div class="bento-col">
+          <div class="bento-large-blue-card">
+            <img src="Decorative-Wave-Graphic.png" alt="Decorative Wave Graphic" class="bento-top-graphic">
+
+            <div class="bento-card-content">
+              <h3>Always Here When You Need Us</h3>
+              <p>Our service is led by a Registered Manager who came into care from the front line, not from a boardroom, and who holds the Level 5 Diploma in Leadership for Health and Social Care. She is supported by a Director and Nominated Individual who holds provider level accountability for governance, finance and regulatory compliance. Between them they cover the service 24 hours a day. There is no call centre and no answering service.</p>
+              <p>We are also, quite deliberately, a digital service from day one. Every visit is checked in and checked out through electronic call monitoring, so a late or missed visit raises an alert automatically rather than waiting for someone to notice. Medicines are recorded electronically. Care plans are on a secure system that families can be given access to. None of this replaces a kind pair of hands at the door, but it means the office knows within minutes if something has gone wrong.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FAMILIES IN KIRKLEES CHOOSE NOVAEDGE -->
+  <section class="why-choose">
+    <div class="why-choose-container">
+      <h2 class="why-choose-title">Why Families in Kirklees<br>Choose Novaedge</h2>
+
+      <div class="features-grid">
+        <div class="feature-card" style="background: #F1F4F8; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+  <div class="feature-icon-badge" style="width: 48px; height: 48px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+    <img src="Call-Icon3.svg" alt="Phone Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+  </div>
+  <h4 style="color: #041028; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Based in Huddersfield</h4>
+  <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">You will not be passed between departments. One of the two managers is on 07438 972366 at all times, including nights, weekends and bank holidays. If you ring at seven on a Sunday morning because your mother has had a fall, a manager answers.</p>
+</div>
+
+        <div class="feature-card" style="background: #F1F4F8; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+  <div class="feature-icon-badge" style="width: 48px; height: 48px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+    <img src="Profile-Icon.svg" alt="Profile Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+  </div>
+  <h4 style="color: #041028; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Small, consistent care teams</h4>
+  <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">We rota for familiarity, not just availability. That means fewer carers, seen more often, who know how you take your tea and which cupboard the good towels live in. Continuity is not a luxury add on. It is the single thing families tell us matters most, and it is the thing that most agencies quietly give up on first.</p>
+</div>
+
+        <div class="feature-card" style="background: #F1F4F8; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+  <div class="feature-icon-badge" style="width: 48px; height: 48px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+    <img src="Clock-Icon.svg" alt="Clock Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+  </div>
+  <h4 style="color: #041028; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Paid travel time, so your visit is not cut short</h4>
+  <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">Our care workers are paid for the time they spend travelling between visits, and that travel time is built into every rota. It costs us more. It is also the only honest way to make sure that the half hour you are paying for is a real half hour, and not twenty minutes because the traffic on the ring road was bad.</p>
+</div>
+
+        <div class="feature-card" style="background: #F1F4F8; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+  <div class="feature-icon-badge" style="width: 48px; height: 48px; background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+    <img src="Love-Icon.svg" alt="Love Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+  </div>
+  <h4 style="color: #041028; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Care that fits who you are</h4>
+  <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0;">Kirklees is one of the most diverse boroughs in Yorkshire, and we recruit accordingly. Food, faith, language, modesty, washing preferences, prayer times, the gender of the person helping you undress: these are not extras to be accommodated. They are the care plan.</p>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR HOME CARE SERVICES -->
+  <section class="our-services" id="services">
+    <div class="container">
+      <div class="services-top-bar">
+        <div>
+          <h2 class="section-heading-dark">Our Home Care Services</h2>
+          <p class="services-subtitle">Every package starts with a free home visit and is written with you, not for you. We provide:</p>
+        </div>
+        <a href="#services" class="btn btn-white">More Services ↗</a>
+      </div>
+
+      <div class="services-3x3-grid">
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image1.png') center/cover no-repeat;">
+          <div class="service-corner-btn">↗</div>
+          <div class="service-card-overlay">
+            <h4>Personal care</h4>
+            <p>discreet help with washing, showering, dressing, grooming, oral care and continence support, at your pace and with the door closed</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image2.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Dementia care</h4>
+            <p>familiar routines, life history, orientation and calm, patient support for the person and for the family around them</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image3.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Elderly care</h4>
+            <p>Flexible help that keeps an older person independent at home for longer</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image4.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Physical disability support</h4>
+            <p>Enabling care that helps you do more for yourself, not less</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image5.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Medication support</h4>
+            <p>Prompting, assisting and administering, with electronic records and competency assessed staff</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image6.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Companionship and wellbeing</h4>
+            <p>Conversation, hobbies, appointments, walks and getting back out into the community</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image7.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Domestic support and meal preparation</h4>
+            <p>A clean kitchen, a hot meal and a full fridge</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image8.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Respite care</h4>
+            <p>Reliable, planned breaks for family carers, including cover at short notice</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image9.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Night care and overnight support</h4>
+            <p>Sleeping nights and waking nights</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image10.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>24 hour care at home</h4>
+            <p>Multiple daily visits and overnight cover as a genuine alternative to residential care</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image11.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Hospital to home and reablement</h4>
+            <p>Short term intensive support to get you back on your feet after a stay in hospital</p>
+          </div>
+        </div>
+
+        <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image12.png') center/cover no-repeat;">
+          <div class="service-card-overlay">
+            <h4>Palliative and end of life care</h4>
+            <p>Comfort, dignity and presence, alongside the district nursing and specialist palliative teams</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVING HUDDERSFIELD OVERLAY BANNER -->
+  <section class="serving-banner-section" id="areas" style="padding: 0 !important; width: 100% !important; margin: 0 !important; max-width: 100% !important; border-radius: 0 !important;">
+  <div style="width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;">
+    <div class="serving-banner-wrapper" style="position: relative; display: flex; flex-direction: column; align-items: center; width: 100%;">
+
+        <div class="serving-bg-placeholder" style="width: 100%; height: 500px; background: linear-gradient(180deg, rgba(11, 27, 61, 0.2) 0%, rgba(11, 27, 61, 0.5) 100%), url('Team-background.png') center 25% / cover no-repeat; border-radius: 0 !important;">
+        </div>
+
+         <div class="serving-overlay-card" style="position: relative; overflow: hidden; margin-top: 335px; z-index: 2; background: var(--primary-navy); color: #FFFFFF; padding: 35px 30px; border-radius: var(--radius-lg); max-width: 850px; width: 90%; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+
+              <img src="Logo-2.png" alt="Background Logo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.05; pointer-events: none; z-index: 1;">
+
+              <div style="position: relative; z-index: 2;">
+                  <h3 style="font-size: 26px; font-weight: bold; margin-bottom: 15px;">Serving Huddersfield, Dewsbury and the Whole of Kirklees</h3>
+                  <p style="font-size: 14px; line-height: 1.5; opacity: 0.9; margin-bottom: 15px;">From our base in central Huddersfield we cover Almondbury, Birkby, Fartown, Moldgreen, Newsome, Lockwood, Milnsbridge, Golcar, Lindley, Marsh, Salendine Nook, Honley, Meltham, Netherton, Berry Brow, Slaithwaite, Marsden, Linthwaite, Holmfirth, Kirkburton, Shelley, Denby Dale, Skelmanthorpe, Mirfield, Dewsbury, Ravensthorpe, Thornhill, Batley, Birstall, Heckmondwike, Liversedge and Cleckheaton.</p>
+                  <p style="font-size: 14px; line-height: 1.5; opacity: 0.9; margin-bottom: 20px;">Being local is not a marketing line. It means short travel times, so carers arrive when they said they would. It means we know that getting up to Holme in February is a different proposition to getting across Moldgreen. And it means we already work with the teams you will be dealing with: the discharge teams at Huddersfield Royal Infirmary and Dewsbury and District Hospital, the community nursing and therapy teams at Locala, and Kirklees Council adult social care.</p>
+                  <a href="#areas" class="btn btn-orange" style="display: inline-block; background: #e65c00; color: #FFFFFF; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold;">Areas We Cover</a>
+              </div>
+         </div>
+    </div>
+  </div>
+</section>
+
+  <!-- GETTING STARTED IS SIMPLE -->
+  <section class="getting-started" id="how-we-work" style="padding: 60px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <h2 class="getting-started-title" style="text-align: center; margin-bottom: 50px; font-size: 32px; font-weight: bold; color: #0b1b3d;">Getting Started is Simple</h2>
+
+      <div class="steps-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 40px;">
+        
+        <div class="step-item-outer" style="position: relative; padding-left: 95px; width: 100%;">
+          <div class="step-number-outside" style="position: absolute; top: -5px; left: 0; font-size: 56px; font-weight: 800; color: #d0d7de; line-height: 1; z-index: 1;">01</div>
+          <div class="step-card-box" style="position: relative; z-index: 2; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px;">
+            <div class="step-icon-badge" style="background: var(--primary-navy); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Call-Icon4.svg" alt="Phone Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+</div>
+            <div class="step-content">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px; color: #0b1b3d;">Get in touch</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">Call 07438 972366 or email novaedgeservices@hotmail.com. It is a conversation, not a sales call, and there is no obligation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item-outer" style="position: relative; padding-left: 95px; width: 100%;">
+          <div class="step-number-outside" style="position: absolute; top: -5px; left: 0; font-size: 56px; font-weight: 800; color: #d0d7de; line-height: 1; z-index: 1;">02</div>
+          <div class="step-card-box" style="position: relative; z-index: 2; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px;">
+            <div class="step-icon-badge" style="background: var(--primary-navy); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Home-Icon.svg" alt="Home Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+</div>
+            <div class="step-content">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px; color: #0b1b3d;">A free home visit</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">We come to you, at a time that suits, and we listen before we suggest anything. We look at the home for safety while we are there.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item-outer" style="position: relative; padding-left: 95px; width: 100%;">
+          <div class="step-number-outside" style="position: absolute; top: -5px; left: 0; font-size: 56px; font-weight: 800; color: #d0d7de; line-height: 1; z-index: 1;">03</div>
+          <div class="step-card-box" style="position: relative; z-index: 2; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px;">
+            <div class="step-icon-badge" style="background: var(--primary-navy); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Care-Icon.svg" alt="Care Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+</div>
+            <div class="step-content">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px; color: #0b1b3d;">Your care plan</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">We write it with you, agree exactly what will happen and when, and put the cost in writing before anything starts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item-outer" style="position: relative; padding-left: 95px; width: 100%;">
+          <div class="step-number-outside" style="position: absolute; top: -5px; left: 0; font-size: 56px; font-weight: 800; color: #d0d7de; line-height: 1; z-index: 1;">04</div>
+          <div class="step-card-box" style="position: relative; z-index: 2; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px;">
+            <div class="step-icon-badge" style="background: var(--primary-navy); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Carer-Icon.svg" alt="Carer Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+</div>
+            <div class="step-content">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px; color: #0b1b3d;">Meet your carers</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">You meet the people who will be coming, before the first visit, not on the doorstep.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="steps-step5-row" style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px;">
+        <div class="step5-item-outer" style="position: relative; padding-left: 95px; width: 100%; max-width: 630px;">
+          <div class="step-number-outside" style="position: absolute; top: -5px; left: 0; font-size: 56px; font-weight: 800; color: #d0d7de; line-height: 1; z-index: 1;">05</div>
+          <div class="step-card-box" style="position: relative; z-index: 2; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px;">
+            <div class="step-icon-badge" style="background: var(--primary-navy); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Review-Icon.svg" alt="Review Icon" style="width: 24px; height: 24px; object-fit: contain; display: block;">
+</div>
+            <div class="step-content">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px; color: #0b1b3d;">care begins and keeps being reviewed</h4>
+              <p style="font-size: 14px; color: #555; line-height: 1.5; margin: 0;">We check in early, review formally at least every six months, and sooner whenever anything changes.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#how-we-work" class="btn btn-orange" style="display: inline-block; background: #e65c00; color: #FFFFFF; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 10px; box-shadow: 0 4px 15px rgba(230,92,0,0.3);">How We Work</a>
+      </div>
+
+    </div>
+</section>
+
+  <!-- WHAT IT COSTS & OUR PROMISE -->
+ <section class="costs-promise" id="funding" style="padding: 60px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      <div class="costs-promise-grid" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; width: 100%;">
+
+        <div class="promise-col" style="flex: 1; min-width: 320px;">
+          <div class="img-placeholder" style="height: 380px; width: 100%; margin-bottom: 30px; overflow: hidden; padding: 0; border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="Healthcare-Team.png" alt="Healthcare team smiling" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;">
+          </div>
+
+          <div class="promise-card-light" style="background: #f4f6f9; padding: 40px; border-radius: 20px;">
+            <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #0b1b3d;">Our Promise to You and Your Family</h3>
+            <p style="font-size: 15px; line-height: 1.6; margin-bottom: 15px; color: #555;">Letting someone into your home is an act of trust, and we do not treat it casually. We will be honest with you about what we can and cannot do. We will tell you the price before you ask twice. We will send people you have met, who have been properly checked and properly trained. And if we get something wrong, you will hear it from us first, with an apology and a plan, not a defensive letter three weeks later.</p>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: #555;">That last part is a legal duty called the duty of candour, and we are glad it exists. But we would do it anyway, because a service that cannot admit a mistake cannot learn from one.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left">
+          <h3>Frequently Asked Questions</h3>
+          <p>Ready to talk it through? Call Novaedge Services Limited on 07438 972366, or email novaedgeservices@hotmail.com. A conversation costs nothing.</p>
+          <a href="#contact" class="btn btn-navy">Contact us</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>How quickly can care start?</span>
+              <div class="faq-toggle-icon">−</div>
+            </div>
+            <div class="faq-answer">
+              Once our registration with the Care Quality Commission is granted, we can usually begin within a few days of your assessment, and faster where a hospital discharge is involved. The first step costs nothing and commits you to nothing, so it is worth having the conversation early rather than at the point of crisis.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Will I have the same carers every time?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              That is the whole point of how we build our rotas. You will have a small named team rather than whoever is free. When someone is on leave or off sick we cover from within that team wherever we possibly can, and if a new face is unavoidable we introduce them rather than sending them cold.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Are you regulated?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              We have applied to the Care Quality Commission for registration to provide personal care, and we will not deliver any regulated care before that registration is granted. Our policies, training, safeguarding arrangements and governance are already built to the standards the CQC assesses against, and we are happy to show you any of them.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAK TO OUR TEAM -->
+<section class="speak-team" id="contact" style="padding: 60px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div class="speak-team-grid" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center; width: 100%;">
+        
+        <div class="speak-team-left" style="flex: 1; min-width: 340px;">
+          <div class="section-label" style="font-size: 12px; font-weight: bold; letter-spacing: 1px; color: #666; text-transform: uppercase; margin-bottom: 8px;">CONTACT</div>
+          <h2 style="font-size: 32px; font-weight: bold; margin: 0 0 15px 0; color: #0b1b3d;">Speak to our team</h2>
+          <p class="sub-desc" style="font-size: 15px; color: #555; margin-bottom: 30px;">If you have any questions or concerns, our team is here to help.</p>
+
+          <div class="contact-info-pill" style="background: #f4f6f9; padding: 20px 25px; border-radius: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 20px;">
+            <div class="contact-icon-circle" style="background: #e6f0fa; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Phone-Icon.svg" alt="Phone Icon" style="width: 20px; height: 20px; object-fit: contain; display: block;">
+</div>
+            <div>
+              <div class="label" style="font-size: 13px; color: #666; margin-bottom: 2px;">Phone</div>
+              <div class="value" style="font-size: 16px; font-weight: bold; color: #0b1b3d;">07438 972366</div>
+            </div>
+          </div>
+
+          <div class="contact-info-pill" style="background: #f4f6f9; padding: 20px 25px; border-radius: 16px; margin-bottom: 35px; display: flex; align-items: center; gap: 20px;">
+            <div class="contact-icon-circle" style="background: #e6f0fa; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+  <img src="Mail-Icon.svg" alt="Mail Icon" style="width: 22px; height: 22px; object-fit: contain; display: block;">
+</div>
+            <div>
+              <div class="label" style="font-size: 13px; color: #666; margin-bottom: 2px;">Email</div>
+              <div class="value" style="font-size: 16px; font-weight: bold; color: #0b1b3d;">info@novaedgelimited.com</div>
+            </div>
+          </div>
+
+          <div class="related-pages-wrapper">
+            <h5 style="font-size: 16px; font-weight: bold; color: #0b1b3d; margin-bottom: 8px;">Related Pages</h5>
+            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Explore more of our home care services and information:</p>
+            <div class="related-pills" style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <span class="related-pill active" style="background: #e1f0fe; color: #0077cc; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;">All Services ↗</span>
+              <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">About Us</span>
+              <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">Areas We Cover</span>
+              <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">Funding Your Care</span>
+              <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">How We Work</span>
+              <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">Contact Us</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speak-team-right-img img-placeholder" style="flex: 1; min-width: 340px; height: 500px; overflow: hidden; padding: 0; border: none; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+          <img src="Customer-Support.png" alt="Customer Support Team with Headsets" style="width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block;">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="footer-wrapper" style="position: relative; overflow: hidden; padding: 80px 0 180px 0;">
+    
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 180px; pointer-events: none; z-index: 1; overflow: hidden;">
+        <img src="footer-logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+           <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+           <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+           </div>
+           <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#areas">Areas We Cover</a></li>
+              <li><a href="#why-us">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="#services">Our Services</a></li>
+              <li><a href="#funding">Funding your Support</a></li>
+              <li><a href="#areas">Areas we cover</a></li>
+              <li><a href="#referrals">Referrals</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#links">Useful Links</a></li>
+              <li><a href="#feedback">Feedback</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#complaints">Complaints</a></li>
+              <li><a href="#safeguarding">Safeguarding</a></li>
+              <li><a href="#glossary">Glossary</a></li>
+            </ul>
+          </div>
+        </div>
+
+      <div class="footer-cqc-box" style="background: #ffffff; border-radius: 16px; padding: 20px 25px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px;">
+  
+  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    
+    <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+      <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+      <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+        <span>CareQuality</span>
+        <span>Commission</span>
+      </div>
+    </div>
+
+    <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+    
+  </div>
+
+  <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+    <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+    <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+  </div>
+
+</div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-toggle-icon').textContent = '+';
+          });
+
+          if (!isActive) {
+            item.classList.add('active');
+            item.querySelector('.faq-toggle-icon').textContent = '−';
+          }
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
+
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
