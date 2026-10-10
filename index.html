@@ -1093,6 +1093,34 @@
       max-width: 260px;
     }
 
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
     .footer-col h5 {
       font-size: 0.9rem;
       font-weight: 800;
@@ -1179,9 +1207,6 @@
     }
 
     /* ==========================================================================
-       MEDIA QUERIES (RESPONSIVE CORRECTIONS ONLY)
-       ========================================================================== */
-        /* ==========================================================================
        MEDIA QUERIES (RESPONSIVE CORRECTIONS ONLY)
        ========================================================================== */
     @media (max-width: 1024px) {
@@ -1329,13 +1354,24 @@
 
       .step-item-outer,
       .step5-item-outer {
-        padding-left: 64px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding-left: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
+        gap: 8px;
       }
 
       .step-number-outside {
-        font-size: 2.4rem !important;
+        position: static !important;
+        font-size: 2.6rem !important;
+        text-align: left !important;
+        min-width: 0 !important;
+        margin-bottom: 4px;
+      }
+
+      .step-card-box {
+        width: 100% !important;
       }
 
       .bento-card-content {
@@ -1433,22 +1469,62 @@
       }
 
       .nav-actions .phone-link {
-      display: none !important;
+        display: none !important;
       }
 
       .nav-links .mobile-phone {
-       display: flex;
-       align-items: center;
-       gap: 8px;
-       font-weight: 700;
-       color: var(--primary-navy);
-       padding: 4px 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        color: var(--primary-navy);
+        padding: 4px 0 8px;
       }
 
-     .nav-actions .btn {
-       white-space: nowrap;
-       padding: 8px 12px;
-       font-size: 0.78rem;
+      .nav-actions .btn {
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+
+      .speak-team-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+      }
+
+      .speak-team-left,
+      .speak-team-right-img {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        flex: none !important;
+      }
+
+      .speak-team-right-img {
+        height: 260px !important;
+      }
+
+      .contact-info-pill {
+        min-width: 0;
+      }
+
+      .contact-info-pill .value {
+        font-size: 15px !important;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
       }
     }
 
@@ -1479,48 +1555,6 @@
         align-items: flex-start;
       }
     }
-
-    @media (max-width: 768px) {
-  .speak-team-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-
-  .speak-team-left,
-  .speak-team-right-img {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    flex: none !important;
-  }
-
-  .speak-team-right-img {
-    height: 260px !important;
-  }
-
-  .contact-info-pill {
-    min-width: 0;
-  }
-
-  .contact-info-pill .value {
-    font-size: 15px !important;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  .footer-cqc-box > div:first-child {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-  }
-
-  .footer-cqc-box > div:first-child > div:last-child {
-    white-space: normal !important;
-    text-align: left !important;
-    font-size: 13px !important;
-  }
-}
   </style>
 </head>
 <body>
@@ -1628,7 +1662,7 @@
     <div class="container">
       <div class="backed-header">
         <h2 class="section-heading-dark">Care Backed by Experience</h2>
-        <a href="#about" class="btn btn-white">About Novaedge ↗</a>
+        <a href="#about" class="btn btn-white">About Novaedge <img src="Arrow-Icon.svg" alt="Arrow" class="btn-icon"></a>
       </div>
 
       <div class="bento-grid">
@@ -1715,12 +1749,12 @@
           <h2 class="section-heading-dark">Our Home Care Services</h2>
           <p class="services-subtitle">Every package starts with a free home visit and is written with you, not for you. We provide:</p>
         </div>
-        <a href="#services" class="btn btn-white">More Services ↗</a>
+        <a href="#services" class="btn btn-white">More Services <img src="Arrow-Icon.svg" alt="Arrow" class="btn-icon"></a>
       </div>
 
       <div class="services-3x3-grid">
         <div class="service-image-card img-placeholder" style="background: linear-gradient(180deg, rgba(11, 27, 61, 0.025) 0%, rgba(11, 27, 61, 0.025) 100%), url('Image1.png') center/cover no-repeat;">
-          <div class="service-corner-btn">↗</div>
+          <div class="service-corner-btn"><img src="Arrow-Icon2.svg" alt="Arrow" class="btn-icon"></div>
           <div class="service-card-overlay">
             <h4>Personal care</h4>
             <p>discreet help with washing, showering, dressing, grooming, oral care and continence support, at your pace and with the door closed</p>
@@ -2012,7 +2046,7 @@
             <h5 style="font-size: 16px; font-weight: bold; color: #0b1b3d; margin-bottom: 8px;">Related Pages</h5>
             <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Explore more of our home care services and information:</p>
             <div class="related-pills" style="display: flex; flex-wrap: wrap; gap: 10px;">
-              <span class="related-pill active" style="background: #e1f0fe; color: #0077cc; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;">All Services ↗</span>
+              <span class="related-pill active" style="background: #e1f0fe; color: #0077cc; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">All Services <img src="Arrow-Icon3.svg" alt="Arrow" style="width: 14px;"></span>
               <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">About Us</span>
               <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">Areas We Cover</span>
               <span class="related-pill" style="background: #f4f6f9; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px;">Funding Your Care</span>
@@ -2045,6 +2079,18 @@
            <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
            </div>
            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+           <div class="footer-social">
+             <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+             </a>
+             <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+             </a>
+             <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+             </a>
+           </div>
           </div>
 
           <div class="footer-col">
