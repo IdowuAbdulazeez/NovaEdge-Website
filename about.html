@@ -808,6 +808,14 @@
         grid-template-columns: 1fr !important;
       }
 
+      /* Add this part to fix the image cropping on mobile */
+      .about-intro-box img,
+      .about-intro-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Prevents cropping by fitting the whole image in view */
+      }
+
       .about-hero-title {
         font-size: 2rem;
       }
