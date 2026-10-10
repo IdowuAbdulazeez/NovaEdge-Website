@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --orange-dark-bg: #8B3204;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #E0F2FE;
+      --bg-light: #F8FAFC;
+      --bg-card: #EEF2F7;
+      --peach-border: #F3B298;
+      --peach-light: #FDF4F0;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-orange {
+      background-color: var(--accent-orange);
+      color: #FFFFFF;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--primary-navy);
+      border: 1px solid var(--border-color);
+    }
+    .btn-white:hover {
+      background-color: #F8FAFC;
+    }
+
+    /* ==========================================================================
+       NAVBAR (EXACT MATCH)
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       ABOUT PAGE HERO & INTRO SECTION
+       ========================================================================== */
+    .about-hero {
+      padding-top: 150px;
+      padding-bottom: 70px;
+      background: #FAFAFC;
+    }
+
+    .about-hero-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .about-hero-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .about-hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .about-hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .phone-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFF5F0;
+      padding: 10px 20px;
+      border-radius: var(--radius-btn);
+      color: var(--accent-orange);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    /* Peach Highlight Box */
+    .about-intro-box {
+      background: #FFFFFF;
+      border: 3px solid var(--peach-border);
+      border-radius: 24px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .intro-box-left h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .intro-cqc-notice {
+      border-left: 3px solid var(--accent-orange);
+      padding-left: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .intro-call-card {
+      background: #FFF5F0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .intro-call-icon {
+      width: 32px;
+      height: 32px;
+      background: #FFE8DD;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-orange);
+    }
+
+    .intro-box-right-img {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    .intro-box-right-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       OUR STORY SECTION (DARK NAVY)
+       ========================================================================== */
+    .our-story-section {
+      background: var(--navy-dark);
+      color: #FFFFFF;
+      padding: 90px 0;
+    }
+
+    .our-story-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 60px;
+    }
+
+    .story-card-row {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .story-card-row.reverse {
+      grid-template-columns: 1fr 320px;
+    }
+
+    .story-img-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 360px;
+    }
+
+    .story-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-text-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 40px;
+    }
+
+    .story-text-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+
+    .story-text-card p {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .story-text-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================================================
+       MISSION, VISION & VALUES
+       ========================================================================== */
+    .values-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .values-grid-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .left-mission-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mission-card {
+      background: #F1F5F9;
+      padding: 32px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .check-badge-icon {
+      width: auto;
+      height: auto;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .mission-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 10px;
+    }
+
+    .mission-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .mission-side-img {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .mission-side-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right-values-col {
+      background: #F1F5F9;
+      padding: 36px;
+      border-radius: 24px;
+    }
+
+    .right-values-col h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 24px;
+    }
+
+    .values-2x3-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .value-box-white {
+      background: #FFFFFF;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .value-box-white h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+    }
+
+    .value-box-white p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       WHAT MAKES US DIFFERENT
+       ========================================================================== */
+    .different-section {
+      padding: 80px 0;
+      background: #FFF9F6;
+    }
+
+    .different-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .different-left h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      margin-bottom: 28px;
+    }
+
+    .different-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .different-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      line-height: 1.55;
+    }
+
+    .different-check {
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .different-right-img {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 440px;
+    }
+
+    .different-right-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       SAFE, ACCOUNTABLE & INSURED
+       ========================================================================== */
+    .safe-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .safe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .safe-left-card {
+      background: #F0F7FE;
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+    }
+
+    .safe-overlap-img {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 260px;
+      margin-bottom: 28px;
+    }
+
+    .safe-overlap-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .safe-left-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .safe-left-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .safe-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .safe-right-heading {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.25;
+    }
+
+    .safe-desc-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .safe-bottom-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .navy-insurance-card {
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      padding: 28px;
+      border-radius: 20px;
+    }
+
+    .navy-insurance-card .icon-circle {
+      width: 32px;
+      height: 32px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .navy-insurance-card p {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #E2E8F0;
+    }
+
+    .safe-side-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 220px;
+    }
+
+    .safe-side-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       ROOTED IN KIRKLEES BANNER
+       ========================================================================== */
+    .rooted-banner-section {
+      padding: 60px 0 90px;
+    }
+
+    .rooted-banner-card {
+      background: linear-gradient(135deg, #7A2800 0%, #521B00 100%);
+      border-radius: 28px;
+      padding: 60px 48px;
+      color: #FFFFFF;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rooted-banner-card h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .rooted-banner-card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #FFECE3;
+      max-width: 900px;
+      margin: 0 auto 32px;
+    }
+
+    /* ==========================================================================
+       FOOTER (EXACT MATCH)
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      padding: 80px 0 180px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE & TABLET) - MATCHING HOMEPAGE
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .about-intro-box,
+      .story-card-row,
+      .story-card-row.reverse,
+      .values-grid-wrapper,
+      .different-grid,
+      .safe-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .about-hero-title {
+        font-size: 2rem;
+      }
+
+      .story-img-box,
+      .intro-box-right-img,
+      .different-right-img {
+        height: 280px;
+        min-height: 0;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .our-story-title,
+      .safe-right-heading,
+      .rooted-banner-card h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .about-hero {
+        padding-top: 110px;
+        padding-bottom: 50px;
+      }
+
+      .about-hero-title {
+        font-size: 1.7rem;
+      }
+
+      .about-hero-desc {
+        font-size: 0.88rem;
+      }
+
+      .about-hero-ctas {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .about-intro-box {
+        padding: 24px 18px;
+        gap: 24px;
+      }
+
+      .intro-box-left h3 {
+        font-size: 1.15rem;
+      }
+
+      .intro-box-right-img {
+        height: 240px;
+        min-height: 0;
+      }
+
+      .our-story-section,
+      .values-section,
+      .different-section,
+      .safe-section {
+        padding: 56px 0;
+      }
+
+      .our-story-title {
+        font-size: 1.8rem;
+        margin-bottom: 36px;
+      }
+
+      .story-card-row,
+      .story-card-row.reverse {
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+
+      .story-img-box {
+        height: 220px;
+      }
+
+      .story-text-card {
+        padding: 24px 20px;
+      }
+
+      .story-text-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .values-2x3-grid,
+      .safe-bottom-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .right-values-col {
+        padding: 24px 18px;
+      }
+
+      .right-values-col h2 {
+        font-size: 1.6rem;
+      }
+
+      .different-left h2 {
+        font-size: 1.7rem;
+      }
+
+      .different-right-img {
+        height: 260px;
+      }
+
+      .safe-left-card {
+        padding: 24px 18px;
+      }
+
+      .safe-overlap-img {
+        height: 200px;
+      }
+
+      .safe-right-heading {
+        font-size: 1.7rem;
+      }
+
+      .rooted-banner-card {
+        padding: 32px 18px;
+      }
+
+      .rooted-banner-card h2 {
+        font-size: 1.6rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero-title {
+        font-size: 1.5rem;
+      }
+
+      .story-img-box,
+      .intro-box-right-img,
+      .different-right-img,
+      .safe-overlap-img {
+        height: 200px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (EXACT HOME MATCH) -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#how-we-work">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#funding">Funding Your Care</a></li>
+        <li><a href="index.html#areas">Areas We Cover</a></li>
+        <li><a href="index.html#safeguarding">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:02084081570" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain;">
+        <span style="font-weight: 700;">020 8408 1570</span>
+      </a>
+      <a href="index.html#contact" class="btn btn-navy">Get in Touch</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ABOUT HERO / INTRO SECTION -->
+  <section class="about-hero">
+    <div class="container">
+      
+      <div class="about-hero-header">
+        <h1 class="about-hero-title">About Novaedge Services Limited</h1>
+        <p class="about-hero-desc">
+          Novaedge Services Limited was incorporated on 14 January 2026 by two people who had seen home care from opposite ends: one from inside it, doing the visits, leading the shift, writing the MAR charts and sitting with families at the difficult moments; the other from the governance and systems side, where the question is always whether the paperwork actually describes what is happening in the house.
+        </p>
+
+        <div class="about-hero-ctas">
+          <div class="phone-pill-btn">
+            <img src="Call-Icon3.svg" alt="Phone" style="width: 16px; height: 16px;">
+            <span>07438 972366</span>
+          </div>
+          <a href="index.html#contact" class="btn btn-orange">Get in Touch</a>
+        </div>
+      </div>
+
+      <!-- PEACH HIGHLIGHT BOX -->
+      <div class="about-intro-box">
+        <div class="intro-box-left">
+          <h3>
+            We started Novaedge because those two views rarely meet. Plenty of agencies are warm but disorganised. Plenty are well run but impersonal. The thing we are trying to build sits in the middle: care that feels personal at the door and is rigorous behind it.
+          </h3>
+
+          <div class="intro-cqc-notice">
+            Novaedge Services Limited has applied to the Care Quality Commission for registration to provide the regulated activity of personal care. Care will begin once that registration is granted. We say so plainly here because you deserve to know exactly where we stand before you speak to us.
+          </div>
+
+          <div class="intro-call-card">
+            <div class="intro-call-icon"><img src="Call-Icon3.svg" alt="Phone" class="btn-icon"></div>
+            <div>
+              Call Novaedge Services Limited today on <strong>07438 972366</strong> or email <strong style="color: var(--accent-orange);">novaedgeservices@hotmail.com</strong> to arrange a free, no obligation home visit. There is no pressure and nothing to sign.
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-box-right-img">
+          <img src="care-team-group.png" alt="Novaedge Healthcare Team">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUR STORY SECTION -->
+  <section class="our-story-section">
+    <div class="container">
+      <h2 class="our-story-title">Our Story</h2>
+
+      <!-- REGISTERED MANAGER ROW -->
+      <div class="story-card-row">
+        <div class="story-img-box">
+          <img src="registered-manager.png" alt="Registered Manager Portrait">
+        </div>
+        <div class="story-text-card">
+          <h3>Registered Manager</h3>
+          <p>
+            Our Registered Manager spent years as a health care assistant and then as a senior care assistant and support worker, in people's homes and in residential settings, before moving into management. She has administered medicines and monitored for side effects, led shifts and responded to emergencies, written and updated care plans, mentored new care assistants, and sat with people living with dementia through distress without ever resorting to force or intimidation. She holds the Level 5 Diploma in Leadership for Health and Social Care and the Level 3 Diploma in Adult Care.
+          </p>
+          <p>
+            Before care, she spent more than a decade as a principal programme analyst in public sector technology. That is an unusual route into a care agency, and it shows in how Novaedge is built. The instinct to design a system that tells you the truth about itself, rather than one that looks tidy on a spreadsheet, comes directly from that background.
+          </p>
+        </div>
+      </div>
+
+      <!-- DIRECTOR AND NOMINATED INDIVIDUAL ROW -->
+      <div class="story-card-row reverse">
+        <div class="story-text-card">
+          <h3>Director and Nominated Individual</h3>
+          <p>
+            Our Director and Nominated Individual holds provider level accountability: governance, finance, insurance, business continuity, regulatory compliance and the supervision of the Registered Manager. He chairs a monthly provider meeting at which quality, complaints, incidents, safeguarding, medicines and workforce data are reviewed and minuted. It is not a formality. It is the mechanism by which a small service stays honest with itself.
+          </p>
+          <p>
+            We chose Huddersfield because it is where we live and work, and because Kirklees has an established home care market with a visible quality gap. Of the home care agencies on the CQC public register for the borough, a meaningful minority are rated below Good or are not yet rated. The failings that recur in those reports are the same ones every time: medicines, missed and rushed visits, and not enough travel time. Those are precisely the three things we have designed the service around.
+          </p>
+        </div>
+        <div class="story-img-box">
+          <img src="director-portrait.png" alt="Director Portrait">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUR MISSION, VISION & VALUES -->
+  <section class="values-section">
+    <div class="container">
+      <div class="values-grid-wrapper">
+        
+        <!-- LEFT COLUMN: MISSION & VISION -->
+        <div class="left-mission-col">
+          <div class="mission-card">
+            <div class="check-badge-icon"><img src="Verified-Icon.svg" alt="Check" class="btn-icon"></div>
+            <h3>Our Mission</h3>
+            <p>
+              To deliver safe, effective, compassionate and well led personal care to adults in their own homes across Kirklees, so that the people we support can live as independently, safely and well as possible in their own communities and on their own terms.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="check-badge-icon"><img src="Verified-Icon.svg" alt="Check" class="btn-icon"></div>
+            <h3>Our Vision</h3>
+            <p>
+              A home care service in Kirklees that families recommend without hesitating, that professionals refer to with confidence, and that care workers do not want to leave. We would rather be the best small provider in the borough than a mediocre large one, and we will only grow at the speed our workforce, governance and quality assurance can genuinely absorb.
+            </p>
+          </div>
+
+          <div class="mission-side-img">
+            <img src="Hero.png" alt="Caregiver supporting senior woman in wheelchair">
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: OUR VALUES GRID -->
+        <div class="right-values-col">
+          <h2>Our Values</h2>
+
+          <div class="values-2x3-grid">
+            <div class="value-box-white">
+              <h4>Dignity</h4>
+              <p>To deliver safe, effective, compassionate and well led personal care to adults in their own homes across Kirklees, so that the people we support can live as independently, safely and well as possible in their own communities and on their own terms.</p>
+            </div>
+
+            <div class="value-box-white">
+              <h4>Independence</h4>
+              <p>The aim is always to help someone do more for themselves, not less. If you can wash your own face, we hand you the flannel and we wait. Doing things for people because it is quicker is the most common way good intentions cause harm.</p>
+            </div>
+
+            <div class="value-box-white">
+              <h4>Consistency</h4>
+              <p>Small teams, familiar faces, visits that happen when they were promised. We treat continuity as a clinical issue, not a customer service one, because for a person living with dementia an unfamiliar carer at the door is not an inconvenience, it is a frightening event.</p>
+            </div>
+
+            <div class="value-box-white">
+              <h4>Honesty</h4>
+              <p>We tell you the price before you ask. We tell you when something has gone wrong before you find out. We tell you when what you need is not something we can safely provide, and we help you find who can.</p>
+            </div>
+
+            <div class="value-box-white">
+              <h4>Respect for difference</h4>
+              <p>Faith, culture, language, food, modesty, gender preference, sexuality and family structure are part of the care plan, not exceptions to it. We recruit a workforce that reflects the borough we serve.</p>
+            </div>
+
+            <div class="value-box-white">
+              <h4>Learning</h4>
+              <p>Every complaint, incident, near miss and piece of feedback goes into the same monthly review. We are more interested in what a mistake teaches us than in who made it.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section class="different-section">
+    <div class="container">
+      <div class="different-grid">
+        
+        <div class="different-left">
+          <h2>What Makes Us Different</h2>
+
+          <div class="different-list">
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>Two accountable people, not a hierarchy:</strong> You can speak to a decision maker the same day, every day.</div>
+            </div>
+
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>Paid travel time as standard:</strong> Your visit is not shortened to absorb someone else's journey.</div>
+            </div>
+
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>Digital from day one:</strong> Electronic call monitoring, electronic medication records and secure digital care plans, in place before the first visit rather than promised for later.</div>
+            </div>
+
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>Above National Living Wage pay:</strong> Care workers are paid £12.75 an hour with enhancements for unsocial hours, because underpaid carers leave and turnover is what breaks continuity.</div>
+            </div>
+
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>A workforce that reflects Kirklees:</strong> Culturally competent care in one of the most diverse boroughs in Yorkshire.</div>
+            </div>
+
+            <div class="different-item">
+              <div class="different-check"><img src="Checkmark-Icon.svg" alt="Check" class="btn-icon"></div>
+              <div><strong>Growth on a leash:</strong> We will decline work we cannot staff properly rather than take it and hope.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="different-right-img">
+          <img src="Carer-Patient.png" alt="Carer conversing with young patient">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFE, ACCOUNTABLE AND INSURED -->
+  <section class="safe-section">
+    <div class="container">
+      <div class="safe-grid">
+        
+        <!-- LEFT: SAFEGUARDING OVERLAP CARD -->
+        <div class="safe-left-card">
+          <div class="safe-overlap-img">
+            <img src="Healthcare-Team.png" alt="Healthcare professionals duo">
+          </div>
+          <h3>Safeguarding Procedures</h3>
+          <p>
+            The Registered Manager is the Designated Safeguarding Lead and the Director and Nominated Individual is the deputy. We work to the Kirklees Safeguarding Adults Board procedures. If you ever have a concern about a member of our staff, including about a manager, you do not have to raise it with us first. The routes to Kirklees Council adult social care and to the Care Quality Commission are published on our Safeguarding page with the phone numbers.
+          </p>
+          <a href="index.html#safeguarding" class="btn btn-navy">Learn More</a>
+        </div>
+
+        <!-- RIGHT: SAFE DETAILS & INSURANCE -->
+        <div class="safe-right-col">
+          <h2 class="safe-right-heading">Safe, Accountable and Insured</h2>
+          <p class="safe-desc-text">
+            Every care worker is recruited under Schedule 3 of the Health and Social Care Act 2008 (Regulated Activities) Regulations 2014. That means an enhanced Disclosure and Barring Service check including the adult barred list before deployment, a full employment history with any gaps explained, verified references including the most recent employer, and right to work checks. Nobody delivers unsupervised personal care until their induction is signed off and their competence has been observed in practice.
+          </p>
+
+          <div class="safe-bottom-cards">
+            <div class="navy-insurance-card">
+              <div class="icon-circle"><img src="Verified-Icon2.svg" alt="Verified" style="width: 20px; height: 20px;"></div>
+              <p>
+                We hold employers liability cover of £10,000,000, public and products liability including care and treatment of £10,000,000, and professional indemnity cover of £2,000,000. Our certificates are available on request.
+              </p>
+            </div>
+
+            <div class="safe-side-photo">
+              <img src="Doctor-Patient.png" alt="Nurse caring for elderly man">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOTED IN KIRKLEES BANNER -->
+  <section class="rooted-banner-section">
+    <div class="container">
+      <div class="rooted-banner-card">
+        <h2>Rooted in Kirklees</h2>
+        <p>
+          We are not a franchise of a national brand with a call centre in another county. Decisions about your care are made in Huddersfield by the people who visit you. We work alongside Kirklees Council adult social care, NHS West Yorkshire Integrated Care Board, Locala community health services, the discharge teams at Huddersfield Royal Infirmary and Dewsbury and District Hospital, local GP practices and community pharmacies, and we signpost to Cloverleaf Advocacy, Healthwatch Kirklees, Carers Count and Age UK when that is what someone actually needs.
+        </p>
+        <a href="index.html#contact" class="btn btn-white">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (EXACT HOME MATCH) -->
+  <footer class="footer-wrapper">
+    
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 180px; pointer-events: none; z-index: 1; overflow: hidden;">
+        <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+           <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+             <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+           </div>
+           <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+           <div class="footer-social">
+             <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+               <svg viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+             </a>
+             <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+               <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+             </a>
+             <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+               <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+             </a>
+           </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html#team">Our Team</a></li>
+              <li><a href="index.html#areas">Areas We Cover</a></li>
+              <li><a href="index.html#why-us">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="index.html#funding">Funding your Support</a></li>
+              <li><a href="index.html#areas">Areas we cover</a></li>
+              <li><a href="index.html#referrals">Referrals</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="index.html#faq">FAQs</a></li>
+              <li><a href="index.html#links">Useful Links</a></li>
+              <li><a href="index.html#feedback">Feedback</a></li>
+              <li><a href="index.html#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="index.html#complaints">Complaints</a></li>
+              <li><a href="index.html#safeguarding">Safeguarding</a></li>
+              <li><a href="index.html#glossary">Glossary</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%;">
+            <span style="font-size: 16px;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="index.html#privacy">Privacy Policy</a>
+            <a href="index.html#terms">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
