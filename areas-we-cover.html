@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areas We Cover - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #E0F2FE;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-orange {
+      background-color: var(--accent-orange);
+      color: #FFFFFF;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--primary-navy);
+      border: 1px solid var(--border-color);
+    }
+    .btn-white:hover {
+      background-color: #F8FAFC;
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION (AREAS WE COVER - ADJUSTED)
+       ========================================================================== */
+    .areas-hero-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 720px;
+      background: linear-gradient(
+        180deg, 
+        rgba(6, 22, 43, 0.0) 0%, /* Completely transparent at the top */
+        rgba(6, 22, 43, 0.45) 50%, /* Mid-section subtle tint */
+        rgba(6, 22, 43, 0.92) 100% /* Dark navy at the bottom for text readability */
+      ), url('Castle.png') center/cover no-repeat;
+      color: #FFFFFF;
+      display: flex;
+      align-items: flex-end;
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+
+    .areas-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    .areas-hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .areas-hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .areas-hero-subtitle {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #E2E8F0;
+      margin-bottom: 12px;
+    }
+
+    .areas-hero-subtext {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      margin-bottom: 28px;
+    }
+
+    .areas-hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .areas-hero-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .glass-info-badge {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      padding: 24px 28px;
+      color: #FFFFFF;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .glass-info-badge img {
+      height: 38px;
+      margin-bottom: 16px;
+      object-fit: contain;
+    }
+
+    .glass-info-badge p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #F1F5F9;
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       HUDDERSFIELD & SURROUNDING AREAS SECTION
+       ========================================================================== */
+    .huddersfield-intro-section {
+      padding: 70px 0 30px;
+      text-align: center;
+      background: #FFFFFF;
+    }
+
+    .huddersfield-intro-section h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 14px;
+    }
+
+    .huddersfield-intro-section p {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE REGION SELECTOR (TABS & CARDS)
+       ========================================================================== */
+    .region-selector-section {
+      padding: 40px 0 80px;
+      background: #FFFFFF;
+    }
+
+    .region-grid-container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .region-tabs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .region-tab-item {
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+    }
+
+    .region-tab-item:hover {
+      background: #F1F5F9;
+    }
+
+    .region-tab-item.active {
+      background: var(--bright-blue);
+      color: #FFFFFF;
+      border-color: var(--bright-blue);
+    }
+
+    .region-tab-item.active .tab-arrow {
+      color: #FFFFFF;
+    }
+
+    .tab-arrow {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .region-display-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 380px;
+      background: #0B1B3D;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .region-card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+    }
+
+    .region-card-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+      background: linear-gradient(to top, rgba(6, 22, 43, 0.95) 0%, rgba(6, 22, 43, 0.4) 70%, transparent 100%);
+      color: #FFFFFF;
+    }
+
+    .region-card-overlay h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .region-card-overlay p {
+      font-size: 0.9rem;
+      color: #E2E8F0;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 650px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #E2E8F0;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: var(--accent-orange);
+      width: 24px;
+      border-radius: 10px;
+    }
+
+    /* ==========================================================================
+       DUAL DIVERGENT INFO CARDS
+       ========================================================================== */
+    .dual-cards-section {
+      padding: 60px 0;
+      background: #FFFFFF;
+    }
+
+    .dual-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .info-box-light {
+      background: #F8FAFC;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .info-box-sky {
+      background: #EFF6FF;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .info-box-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 14px;
+    }
+
+    .info-box-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .info-box-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 440px;
+    }
+
+    .info-box-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       WHY A LOCAL PROVIDER MATTERS
+       ========================================================================== */
+    .why-local-section {
+      background: var(--primary-navy);
+      color: #FFFFFF;
+      padding: 90px 0;
+    }
+
+    .why-local-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .why-local-left h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    .why-local-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .check-icon-badge {
+      width: 22px;
+      height: 22px;
+      background: transparent;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist-item p {
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+
+    .why-local-right-img {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .why-local-right-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .why-local-contact-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text-dark);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .badge-call-icon {
+      width: 42px;
+      height: 42px;
+      background: #FFEADF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .badge-text {
+      font-size: 0.82rem;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .badge-text strong {
+      color: var(--accent-orange);
+    }
+
+    /* ==========================================================================
+       FREQUENTLY ASKED QUESTIONS
+       ========================================================================== */
+    .faq-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+    }
+
+    .faq-left h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+    }
+
+    .faq-left p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: all 0.25s ease;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .faq-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 280px;
+      margin-top: 14px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 180px 0;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS - MATCHING HOMEPAGE & OTHER PAGES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .areas-hero-grid,
+      .region-grid-container,
+      .dual-cards-grid,
+      .why-local-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .areas-hero-title {
+        font-size: 2.1rem;
+      }
+
+      .why-local-left h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .areas-hero-wrapper {
+        min-height: 0;
+        padding-top: 110px;
+        padding-bottom: 40px;
+        background-position: center 30%;
+      }
+
+      .areas-hero-title {
+        font-size: 1.7rem;
+      }
+
+      .areas-hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .glass-info-badge {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+
+      .huddersfield-intro-section {
+        padding: 50px 0 20px;
+      }
+
+      .huddersfield-intro-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .region-selector-section,
+      .dual-cards-section,
+      .why-local-section,
+      .faq-section {
+        padding: 50px 0;
+      }
+
+      .region-display-card {
+        min-height: 280px;
+      }
+
+      .region-card-overlay {
+        padding: 24px 18px;
+      }
+
+      .region-card-overlay h3 {
+        font-size: 1.4rem;
+      }
+
+      .info-box-light,
+      .info-box-sky {
+        padding: 24px 18px;
+      }
+
+      .info-box-title {
+        font-size: 1.35rem;
+      }
+
+      .info-box-img-wrap {
+        height: 220px;
+      }
+
+      .why-local-left h2 {
+        font-size: 1.7rem;
+      }
+
+      .why-local-right-img {
+        margin-top: 20px;
+      }
+
+      .why-local-contact-badge {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 16px;
+      }
+
+      .faq-left {
+        margin-bottom: 20px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .areas-hero-title {
+        font-size: 1.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+
+      .region-display-card {
+        min-height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#funding">Funding Your Care</a></li>
+        <li><a href="areas-we-cover.html" class="active">Areas We Cover</a></li>
+        <li><a href="index.html#safeguarding">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:02084081570" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+        <span style="font-weight: 700;">079 3458 3993</span>
+      </a>
+      <a href="index.html#contact" class="btn btn-navy">Get in Touch</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="areas-hero-wrapper">
+    <div class="container">
+      <div class="areas-hero-grid">
+        <div class="areas-hero-left">
+          <h1 class="areas-hero-title">Where We Provide Home Care Across Kirklees</h1>
+          <p class="areas-hero-subtitle">We work in one borough, on purpose. Kirklees is big enough to build a real service in and small enough to know properly. Keeping our operating area tight is what lets us pay travel time, keep journeys short and put the same carers in front of the same people.</p>
+          <p class="areas-hero-subtext">If you are just outside the areas below, ring anyway. The honest answer might be no, but it might be that you are ten minutes from an existing round.</p>
+
+          <div class="areas-hero-btns">
+            <a href="index.html#contact" class="btn btn-orange">Get in Touch</a>
+            <a href="tel:07934583993" class="btn btn-white" style="display: inline-flex; align-items: center; gap: 8px; color: #0080ff;">
+              <img src="Call-Icon2.svg" alt="Phone" style="width: 16px; height: 16px;">
+              <span>07934 583993</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="areas-hero-right">
+          <div class="glass-info-badge">
+            <img src="Logo-3.png" alt="Novaedge Logo">
+            <p>Call Novaedge Services Limited on <strong>07934 583993</strong> to check whether we cover your street.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUDDERSFIELD & SURROUNDING AREAS INTRO -->
+  <section class="huddersfield-intro-section">
+    <div class="container">
+      <h2>Huddersfield and Surrounding Areas</h2>
+      <p>Our office is in the centre of Huddersfield and this is where most of our work is. We cover Almondbury, Birkby, Fartown, Moldgreen, Newsome, Lockwood, Berry Brow, Milnsbridge, Golcar, Lindley, Marsh, Salendine Nook, Paddock, Crosland Moor, Dalton, Bradley and Deighton.</p>
+    </div>
+  </section>
+
+  <!-- REGION SELECTOR (TABS & DISPLAY CARD) -->
+  <section class="region-selector-section">
+    <div class="container">
+      <div class="region-grid-container">
+        
+        <div class="region-tabs-list">
+          <div class="region-tab-item active" data-region="colne">
+            <span>The Colne Valley</span>
+            <span class="tab-arrow">›</span>
+          </div>
+          <div class="region-tab-item" data-region="holme">
+            <span>The Holme Valley</span>
+            <span class="tab-arrow">›</span>
+          </div>
+          <div class="region-tab-item" data-region="dewsbury">
+            <span>Dewsbury, Mirfield and Ravensthorpe</span>
+            <span class="tab-arrow">›</span>
+          </div>
+          <div class="region-tab-item" data-region="batley">
+            <span>Batley, Birstall and the Spen Valley</span>
+            <span class="tab-arrow">›</span>
+          </div>
+          <div class="region-tab-item" data-region="villages">
+            <span>The Kirklees Villages</span>
+            <span class="tab-arrow">›</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="region-display-card" id="regionCard">
+            <img src="Colne-Valley.png" alt="Colne Valley Bridge View" class="region-card-bg" id="regionCardBg">
+            <div class="region-card-overlay">
+              <h3 id="regionTitle">The Colne Valley</h3>
+              <p id="regionDesc">Slaithwaite, Marsden, Linthwaite, Golcar and Milnsbridge. The valley runs steeply and the weather up towards Marsden is not the weather in town, which is exactly why local knowledge matters in January.</p>
+              <a href="index.html#contact" class="btn btn-navy" style="background: rgba(10,34,64,0.8); border: 1px solid rgba(255,255,255,0.3);">Learn more ↗</a>
+            </div>
+          </div>
+
+          <div class="carousel-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL INFO CARDS -->
+  <section class="dual-cards-section">
+    <div class="container">
+      <div class="dual-cards-grid">
+        
+        <div class="info-box-light">
+          <div>
+            <h3 class="info-box-title">Not Sure If We Cover You?</h3>
+            <p class="info-box-desc">Ring 07934 583993 and tell us the postcode. We will give you a straight answer the same day. If we cannot reach you safely and reliably, we will say so rather than take you on and then let you down in bad weather, and we will point you towards Kirklees Council adult social care on 0300 304 5555 who can tell you who does cover your area.</p>
+          </div>
+          <div class="info-box-img-wrap">
+            <img src="carer-desk2.png" alt="Carer at desk taking phone call">
+          </div>
+        </div>
+
+        <div class="info-box-sky">
+          <div>
+            <h3 class="info-box-title">Growing Carefully, Not Quickly</h3>
+            <p class="info-box-desc">Our plan is to establish the service properly across Kirklees first. Extending into neighbouring parts of Calderdale, Wakefield and Bradford is something we intend to do in time, and only where the workforce, governance and quality assurance can genuinely absorb it. Any change to our registered operating area will be notified to the Care Quality Commission before it takes effect. We would rather tell you we do not cover somewhere than cover it badly.</p>
+          </div>
+          <div class="info-box-img-wrap">
+            <img src="Team-background2.png" alt="Group of medical professionals">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY A LOCAL PROVIDER MATTERS -->
+  <section class="why-local-section">
+    <div class="container">
+      <div class="why-local-grid">
+        <div class="why-local-left">
+          <h2>Why a Local Provider Matters</h2>
+          
+          <div class="why-local-checklist">
+            <div class="checklist-item">
+              <div class="check-icon-badge"><img src="check-icon-badge.svg" alt="Check" style="width: 14px; height: 14px; object-fit: contain;"></div>
+              <p>Shorter journeys mean visits that start when they were promised</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon-badge"><img src="check-icon-badge.svg" alt="Check" style="width: 14px; height: 14px; object-fit: contain;"></div>
+              <p>Local knowledge means we know which lanes do not get gritted and which streets you cannot park on</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon-badge"><img src="check-icon-badge.svg" alt="Check" style="width: 14px; height: 14px; object-fit: contain;"></div>
+              <p>We already work with the teams you will be dealing with: at Huddersfield Royal Infirmary, Dewsbury and District Hospital, Locala community services and Kirklees Council</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon-badge"><img src="check-icon-badge.svg" alt="Check" style="width: 14px; height: 14px; object-fit: contain;"></div>
+              <p>Decisions about your care are made in Huddersfield by people who have been in your house, not in a regional office</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-icon-badge"><img src="check-icon-badge.svg" alt="Check" style="width: 14px; height: 14px; object-fit: contain;"></div>
+              <p>In snow, in a power cut or during an outbreak, being ten minutes away is the whole difference</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-local-right-img">
+          <img src="care-team-group.png" alt="Three smiling carers">
+          <div class="why-local-contact-badge">
+            <div class="badge-call-icon">
+              <img src="Call-Icon3.svg" alt="Phone" style="width: 22px; height: 22px; object-fit: contain; display: block;">
+            </div>
+            <div class="badge-text">
+              Professional referrals and family enquiries go to the same number: <strong>07934 583993</strong>, or email <strong>hello@novaedgelimited.com</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left">
+          <h3>Frequently Asked Questions</h3>
+          <p>Ready to talk it through? Call Novaedge Services Limited on 07934 583993, or email hello@novaedgelimited.com. A conversation costs nothing.</p>
+          <a href="index.html#contact" class="btn btn-navy">Contact us</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>Do you cover my area?</span>
+              <div class="faq-toggle-icon">−</div>
+            </div>
+            <div class="faq-answer">
+              We cover all districts across Kirklees, including Huddersfield, Dewsbury, Batley, Holmfirth, Mirfield and surrounding valleys. Contact us with your postcode for immediate confirmation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What if I live outside Kirklees?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              If you live close to the border, please call us. If we have existing care teams operating near your street, we may be able to support you safely.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How quickly can local care start?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              Once registration is granted, care can usually begin within a few days following a free home assessment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="footer-watermark">
+      <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+            </div>
+            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+            <div class="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+              <li><a href="#why-us">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="index.html#funding">Funding your Support</a></li>
+              <li><a href="areas-we-cover.html">Areas we cover</a></li>
+              <li><a href="#referrals">Referrals</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#links">Useful Links</a></li>
+              <li><a href="#feedback">Feedback</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#complaints">Complaints</a></li>
+              <li><a href="index.html#safeguarding">Safeguarding</a></li>
+              <li><a href="#glossary">Glossary</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+            <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Region Selector Data
+      const regionData = {
+        colne: {
+          title: "The Colne Valley",
+          desc: "Slaithwaite, Marsden, Linthwaite, Golcar and Milnsbridge. The valley runs steeply and the weather up towards Marsden is not the weather in town, which is exactly why local knowledge matters in January.",
+          image: "Colne-Valley.png"
+        },
+        holme: {
+          title: "The Holme Valley",
+          desc: "Holmfirth, Honley, Meltham, Netherthong and New Mill. Dedicated carers covering the rural hills and steep valley routes year-round.",
+          image: "Holme-Valley.png"
+        },
+        dewsbury: {
+          title: "Dewsbury, Mirfield and Ravensthorpe",
+          desc: "Comprehensive home support covering central Dewsbury, Thornhill, Mirfield and surrounding urban and suburban neighbourhoods.",
+          image: "Dewsbury.png"
+        },
+        batley: {
+          title: "Batley, Birstall and the Spen Valley",
+          desc: "Batley, Birstall, Heckmondwike, Cleckheaton and Liversedge with close proximity to community support networks.",
+          image: "Batley.png"
+        },
+        villages: {
+          title: "The Kirklees Villages",
+          desc: "Kirkburton, Shelley, Denby Dale, Skelmanthorpe and Birdsedge, ensuring rural independence with reliable local visits.",
+          image: "Kirklees-Villages.png"
+        }
+      };
+
+      const tabs = document.querySelectorAll('.region-tab-item');
+      const titleEl = document.getElementById('regionTitle');
+      const descEl = document.getElementById('regionDesc');
+      const bgImgEl = document.getElementById('regionCardBg');
+      const dots = document.querySelectorAll('.dot');
+
+      // Set initial region image correctly on page load
+      if (bgImgEl && regionData.colne) {
+        bgImgEl.src = regionData.colne.image;
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          dots.forEach(d => d.classList.remove('active'));
+
+          tab.classList.add('active');
+          if (dots[index]) dots[index].classList.add('active');
+
+          const key = tab.getAttribute('data-region');
+          if (regionData[key]) {
+            titleEl.textContent = regionData[key].title;
+            descEl.textContent = regionData[key].desc;
+            bgImgEl.src = regionData[key].image;
+          }
+        });
+      });
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-toggle-icon').textContent = '+';
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            item.querySelector('.faq-toggle-icon').textContent = '−';
+          }
+        });
+      });
+
+      // Mobile Hamburger Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
