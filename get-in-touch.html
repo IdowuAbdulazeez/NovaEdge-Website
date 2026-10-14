@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get in Touch - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #E0F2FE;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-orange {
+      background-color: var(--accent-orange);
+      color: #FFFFFF;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       CONTACT FORM SECTION
+       ========================================================================== */
+    .contact-page-wrapper {
+      padding-top: 140px;
+      padding-bottom: 90px;
+      background: var(--bg-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: flex-start;
+    }
+
+    .contact-info-side h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .contact-info-side p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    .contact-method-card {
+      background: #FFFFFF;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .contact-icon-circle {
+      width: 48px;
+      height: 48px;
+      background: var(--sky-blue-light);
+      color: var(--bright-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-method-card .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .contact-method-card .value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    /* Form Container */
+    .contact-form-card {
+      background: #FFFFFF;
+      padding: 44px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+    }
+
+    .contact-form-card .form-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      max-width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-main);
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: #FAFAFA;
+      transition: all 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--bright-blue);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(28, 146, 210, 0.15);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748B' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 12px 8px;
+      padding-right: 36px;
+    }
+
+    /* Success Message State */
+    #formResult {
+      display: none;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    #formResult.success {
+      background: #DEF7EC;
+      color: #03543F;
+      border: 1px solid #BCE8D8;
+    }
+
+    #formResult.error {
+      background: #FDE8E8;
+      color: #9B1C1C;
+      border: 1px solid #F8B4B4;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 180px 0;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .contact-info-side h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .contact-page-wrapper {
+        padding-top: 110px;
+        padding-bottom: 60px;
+      }
+
+      .contact-info-side h1 {
+        font-size: 1.7rem;
+      }
+
+      .contact-info-side p {
+        font-size: 0.9rem;
+        margin-bottom: 28px;
+      }
+
+      .contact-method-card {
+        padding: 18px 16px;
+        gap: 14px;
+      }
+
+      .contact-method-card .value {
+        font-size: 1rem;
+        word-break: break-word;
+      }
+
+      .contact-form-card {
+        padding: 28px 18px;
+      }
+
+      .contact-form-card h3 {
+        font-size: 1.45rem;
+      }
+
+      .form-control {
+        font-size: 16px; /* prevents iOS zoom on focus */
+        padding: 12px 14px;
+      }
+
+      select.form-control {
+        font-size: 0.9rem;
+        padding-right: 32px;
+        background-position: right 12px center;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info-side h1 {
+        font-size: 1.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-card {
+        padding: 24px 16px;
+      }
+
+      select.form-control {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#funding">Funding Your Care</a></li>
+        <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+        <li><a href="index.html#safeguarding">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTACT FORM SECTION -->
+  <section class="contact-page-wrapper">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <div class="contact-info-side">
+          <h1>We Are Here to Listen & Help</h1>
+          <p>Arranging care for yourself or a loved one starts with a simple conversation. Fill out the form or reach out to us directly through phone or email. There is zero pressure and no obligation.</p>
+
+          <div class="contact-method-card">
+            <div class="contact-icon-circle">
+              <img src="Phone-Icon.svg" alt="Phone" style="width: 20px;">
+            </div>
+            <div>
+              <div class="label">Direct Phone Line</div>
+              <div class="value">07934 583993</div>
+            </div>
+          </div>
+
+          <div class="contact-method-card">
+            <div class="contact-icon-circle">
+              <img src="Mail-Icon.svg" alt="Email" style="width: 20px;">
+            </div>
+            <div>
+              <div class="label">Company Email</div>
+              <div class="value" style="font-size: 0.95rem; word-break: break-all;">hello@novaedgelimited.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3>Send Us an Enquiry</h3>
+          <p class="form-subtitle">Complete the details below and our management team will get back to you promptly.</p>
+
+          <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+            
+            <input type="hidden" name="access_key" value="71d6267e-04d5-49bc-8d89-d3c1b9e3bc4a">
+            <input type="hidden" name="subject" value="New Enquiry from Novaedge Website">
+            <input type="hidden" name="to" value="idowuabdulazeez182@gmail.com.com">
+
+            <div class="form-group">
+              <label for="name">Your Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="e.g., John Smith">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required placeholder="e.g., 07438 972366">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required placeholder="e.g., john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="postcode">Your Postcode / Area in Kirklees</label>
+              <input type="text" id="postcode" name="postcode" class="form-control" placeholder="e.g., HD1 or Huddersfield">
+            </div>
+
+            <div class="form-group">
+              <label for="service">What type of care or support are you inquiring about?</label>
+              <select id="service" name="service" class="form-control">
+                <option value="Personal Care">Personal Care</option>
+                <option value="Dementia Care">Dementia Care</option>
+                <option value="Elderly Care">Elderly Care</option>
+                <option value="Physical Disability Support">Physical Disability Support</option>
+                <option value="Medication Support">Medication Support</option>
+                <option value="Companionship & Wellbeing">Companionship & Wellbeing</option>
+                <option value="Domestic Support & Meal Preparation">Domestic Support & Meal Preparation</option>
+                <option value="Respite Care">Respite Care</option>
+                <option value="Night Care & Overnight Support">Night Care & Overnight Support</option>
+                <option value="24 Hour Care at Home">24 Hour Care at Home</option>
+                <option value="Hospital to Home & Reablement">Hospital to Home & Reablement</option>
+                <option value="Palliative & End of Life Care">Palliative & End of Life Care</option>
+                <option value="Other Enquiry">Other Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">How can we help? (Details about your routine or needs)</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Tell us a little about what you need..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-orange">Submit Enquiry</button>
+            <div id="formResult"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="footer-watermark">
+      <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+            </div>
+            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+            <div class="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-we-work.html">How We Work</a></li>
+              <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="index.html#funding">Funding your Support</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="index.html#safeguarding">Safeguarding</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+            <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const result = document.getElementById('formResult');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      result.style.display = "block";
+      result.className = "";
+      result.textContent = "Sending your message...";
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let jsonRes = await response.json();
+        if (response.status == 200) {
+          result.className = "success";
+          result.textContent = "Thank you! Your enquiry has been sent successfully. We will call you back shortly.";
+          form.reset();
+        } else {
+          result.className = "error";
+          result.textContent = jsonRes.message || "Something went wrong! Please try calling us directly.";
+        }
+      })
+      .catch(error => {
+        result.className = "error";
+        result.textContent = "Network error! Please check your connection or call 07934 583993.";
+      });
+    });
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
