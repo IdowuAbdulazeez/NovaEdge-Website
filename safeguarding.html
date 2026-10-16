@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safeguarding Adults - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #E0F2FE;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --peach-bg: #FFF5EE;
+      --peach-border: #FFD2C1;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-orange {
+      background-color: var(--accent-orange);
+      color: #FFFFFF;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--primary-navy);
+      border: 1px solid var(--border-color);
+    }
+    .btn-white:hover {
+      background-color: #F8FAFC;
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION (SAFEGUARDING)
+       ========================================================================== */
+    .safeguarding-hero-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 700px;
+      background: linear-gradient(
+        180deg, 
+        rgba(6, 22, 43, 0.0) 0%,
+        rgba(6, 22, 43, 0.45) 50%,
+        rgba(6, 22, 43, 0.92) 100%
+      ), url('Safeguarding-background.png') center/cover no-repeat;
+      color: #FFFFFF;
+      display: flex;
+      align-items: flex-end;
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+
+    .safeguarding-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    .safeguarding-hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .safeguarding-hero-title {
+      font-size: 2.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .safeguarding-hero-subtitle {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #E2E8F0;
+      margin-bottom: 28px;
+    }
+
+    .safeguarding-hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .safeguarding-hero-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .glass-info-badge {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      padding: 24px 28px;
+      color: #FFFFFF;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .glass-info-badge img {
+      height: 38px;
+      margin-bottom: 16px;
+      object-fit: contain;
+    }
+
+    .glass-info-badge p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #F1F5F9;
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       WHAT ABUSE AND NEGLECT LOOK LIKE
+       ========================================================================== */
+    .abuse-types-section {
+      padding: 90px 0 60px;
+      background: #FFFFFF;
+    }
+
+    .section-center-head {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-center-head h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .section-center-head p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .abuse-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .abuse-card {
+      background: var(--peach-bg);
+      border: 1px solid var(--peach-border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .abuse-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(224, 90, 16, 0.06);
+    }
+
+    .abuse-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      margin-bottom: 10px;
+    }
+
+    .abuse-card p {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Paid Travel Banner */
+    .paid-travel-banner {
+      margin-top: 48px;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 10px 30px rgba(224, 90, 16, 0.2);
+    }
+
+    .paid-travel-logo {
+      background: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .paid-travel-logo img {
+      height: 32px;
+    }
+
+    .paid-travel-banner p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       HOW TO RAISE A CONCERN
+       ========================================================================== */
+    .raise-concern-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+
+    .raise-concern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .raise-concern-left h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 28px;
+    }
+
+    .concern-contacts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .concern-contact-pill {
+      background: #FFFFFF;
+      padding: 20px 24px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .concern-icon-badge {
+      width: 44px;
+      height: 44px;
+      background: #FFF5EE;
+      color: var(--accent-orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .concern-info .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .concern-info .value {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+    }
+
+    .raise-concern-card-sky {
+      background: #EFF6FF;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sky-card-img {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      height: 220px;
+    }
+
+    .sky-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .raise-concern-card-sky h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 14px;
+    }
+
+    .raise-concern-card-sky p {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* ==========================================================================
+       OUR ARRANGEMENTS & WHISTLEBLOWING
+       ========================================================================== */
+    .arrangements-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .arrangements-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .arrangements-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 100%;
+      min-height: 380px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .arrangements-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .arrangements-content h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 18px;
+    }
+
+    .arrangements-content p {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .pipot-info-box {
+      background: #F0F7FF;
+      border-left: 4px solid var(--bright-blue);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+
+    .pipot-info-box p {
+      font-size: 0.88rem;
+      color: var(--navy-dark);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Whistleblowing Card Box */
+    .careful-read-box {
+      background: var(--peach-bg);
+      border: 1px solid var(--peach-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .careful-read-box h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      margin-bottom: 10px;
+    }
+
+    .careful-read-box p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       FREQUENTLY ASKED QUESTIONS
+       ========================================================================== */
+    .faq-section {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+    }
+
+    .faq-left h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+    }
+
+    .faq-left p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: all 0.25s ease;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .faq-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 280px;
+      margin-top: 14px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 180px 0;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS - MATCHING OTHER PAGES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .safeguarding-hero-grid,
+      .abuse-cards-grid,
+      .raise-concern-grid,
+      .arrangements-row,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .paid-travel-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .safeguarding-hero-title,
+      .section-center-head h2,
+      .raise-concern-left h2,
+      .arrangements-content h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .safeguarding-hero-wrapper {
+        min-height: 0;
+        padding-top: 110px;
+        padding-bottom: 40px;
+        background-position: center 30%;
+      }
+
+      .safeguarding-hero-title {
+        font-size: 1.7rem;
+      }
+
+      .safeguarding-hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .glass-info-badge {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+
+      .abuse-types-section,
+      .raise-concern-section,
+      .arrangements-section,
+      .faq-section {
+        padding: 56px 0;
+      }
+
+      .section-center-head {
+        margin-bottom: 32px;
+      }
+
+      .section-center-head h2 {
+        font-size: 1.7rem;
+      }
+
+      .abuse-card {
+        padding: 22px 18px;
+      }
+
+      .paid-travel-banner {
+        padding: 22px 18px;
+        gap: 16px;
+      }
+
+      .raise-concern-left h2 {
+        font-size: 1.7rem;
+      }
+
+      .raise-concern-card-sky {
+        padding: 24px 18px;
+      }
+
+      .sky-card-img {
+        height: 180px;
+      }
+
+      .arrangements-row {
+        gap: 28px;
+        margin-bottom: 48px;
+      }
+
+      .arrangements-img {
+        min-height: 220px;
+        height: 240px;
+      }
+
+      .arrangements-content h2 {
+        font-size: 1.7rem;
+      }
+
+      .faq-left {
+        margin-bottom: 20px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .safeguarding-hero-title {
+        font-size: 1.5rem;
+      }
+
+      .section-center-head h2,
+      .raise-concern-left h2,
+      .arrangements-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#funding">Funding Your Care</a></li>
+        <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+        <li><a href="safeguarding.html" class="active">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:07934583993" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+        <span style="font-weight: 700;">079 3458 3993</span>
+      </a>
+      <a href="get-in-touch.html" class="btn btn-navy">Get in Touch</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="safeguarding-hero-wrapper">
+    <div class="container">
+      <div class="safeguarding-hero-grid">
+        <div class="safeguarding-hero-left">
+          <h1 class="safeguarding-hero-title">Safeguarding Adults</h1>
+          <p class="safeguarding-hero-subtitle">Safeguarding is not a policy in a folder. It is what happens in the ten minutes after someone notices a bruise that does not fit the explanation, a bank card that has gone missing, or a person who has become quiet and watchful when a particular relative visits. Everyone at Novaedge is trained to notice those things and required to report them the same day.</p>
+
+          <div class="safeguarding-hero-btns">
+            <a href="get-in-touch.html" class="btn btn-orange">Get in Touch</a>
+            <a href="tel:07438972366" class="btn btn-white" style="display: inline-flex; align-items: center; gap: 8px;">
+              <img src="Call-Icon2.svg" alt="Phone" style="width: 16px; height: 16px;">
+              <span>07934 583993</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="safeguarding-hero-right">
+          <div class="glass-info-badge">
+            <img src="Logo-3.png" alt="Novaedge Logo">
+            <p>If someone is in immediate danger call <strong>999</strong>. Otherwise call Kirklees Council adult social care on <strong>0300 304 5555</strong>, or us on <strong>07934 583993</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT ABUSE AND NEGLECT LOOK LIKE -->
+  <section class="abuse-types-section">
+    <div class="container">
+      <div class="section-center-head">
+        <h2>What Abuse and Neglect Look Like</h2>
+        <p>The Care Act 2014 sets out the categories safeguarding covers. They are not a checklist and they overlap in real life.</p>
+      </div>
+
+      <div class="abuse-cards-grid">
+        <div class="abuse-card">
+          <h3>Physical abuse</h3>
+          <p>Hitting, pushing, rough handling, misuse of medication, restraint</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Domestic abuse</h3>
+          <p>Controlling or coercive behaviour, threats or violence within a family or intimate relationship, including so-called honour based abuse</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Sexual abuse</h3>
+          <p>Any sexual act the person has not consented to or could not consent to</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Psychological abuse</h3>
+          <p>Threats, humiliation, intimidation, isolation, control through fear</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Financial abuse</h3>
+          <p>Theft, fraud, pressure over wills or property, misuse of benefits, scams</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Modern slavery</h3>
+          <p>Forced labour, servitude, human trafficking</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Discriminatory abuse</h3>
+          <p>Ill treatment because of race, faith, gender, disability or age</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Organizational abuse</h3>
+          <p>Poor care caused by how a service is run, including rushed visits and ignored complaints</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Neglect and acts of omission</h3>
+          <p>Ignoring care or medical needs, or failing to provide food, heating, medication or personal care</p>
+        </div>
+
+        <div class="abuse-card">
+          <h3>Self-neglect</h3>
+          <p>Neglecting your own health, hygiene or home, including hoarding</p>
+        </div>
+      </div>
+
+      <!-- Paid travel banner -->
+      <div class="paid-travel-banner">
+        <div class="paid-travel-logo">
+          <img src="Logo.png" alt="Novaedge Logo">
+        </div>
+        <p>Paid travel time costs us money. We do it because it is the only honest way to make sure the half hour someone is paying for is a real half hour, and because a carer who is not driving unpaid is a carer who is still here next year.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO RAISE A CONCERN -->
+  <section class="raise-concern-section">
+    <div class="container">
+      <div class="raise-concern-grid">
+        
+        <div class="raise-concern-left">
+          <h2>How to Raise a Concern</h2>
+          
+          <div class="concern-contacts-list">
+            <div class="concern-contact-pill">
+              <div class="concern-icon-badge">
+                <img src="Mail-Icon2.svg" alt="Mail" style="width: 20px;">
+              </div>
+              <div class="concern-info">
+                <div class="label">Email</div>
+                <div class="value">hello@novaedgelimited.com</div>
+              </div>
+            </div>
+
+            <div class="concern-contact-pill">
+              <div class="concern-icon-badge">
+                <img src="Call-Icon3.svg" alt="Phone" style="width: 18px;">
+              </div>
+              <div class="concern-info">
+                <div class="label">Out of hours Emergency Duty Team</div>
+                <div class="value">07934 583993</div>
+              </div>
+            </div>
+
+            <div class="concern-contact-pill">
+              <div class="concern-icon-badge">
+                <img src="Mail-Icon2.svg" alt="Online" style="width: 20px;">
+              </div>
+              <div class="concern-info">
+                <div class="label">Online</div>
+                <div class="value">my.kirklees.gov.uk, at any hour</div>
+              </div>
+            </div>
+
+            <div class="concern-contact-pill">
+              <div class="concern-icon-badge">
+                <img src="Call-Icon3.svg" alt="Police" style="width: 18px;">
+              </div>
+              <div class="concern-info">
+                <div class="label">Police</div>
+                <div class="value">999 if someone is in immediate danger, otherwise 101</div>
+              </div>
+            </div>
+
+            <div class="concern-contact-pill">
+              <div class="concern-icon-badge">
+                <img src="Logo-Icon.svg" alt="Novaedge" style="width: 20px;">
+              </div>
+              <div class="concern-info">
+                <div class="label">Novaedge</div>
+                <div class="value">07934 583993, 24 hours a day, or hello@novaedgelimited.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="raise-concern-card-sky">
+          <div class="sky-card-img">
+            <img src="Team-examining-record.png" alt="Medical team examining digital records">
+          </div>
+          <div>
+            <h3>Kirklees Council leads adult safeguarding</h3>
+            <p>You do not need proof and you do not need to be certain. It is not your job to investigate, only to pass on what you have seen and let the people with the legal powers decide. Raising a concern that turns out to be nothing has never harmed anybody. Staying quiet has.</p>
+            <p>Kirklees Council leads adult safeguarding enquiries under section 42 of the Care Act 2014, working to the multi agency procedures of the Kirklees Safeguarding Adults Board alongside the police and NHS partners. Wherever we can we act on what the adult themselves wants, which is the principle of making safeguarding personal.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR ARRANGEMENTS & WHISTLEBLOWING -->
+  <section class="arrangements-section">
+    <div class="container">
+      
+      <!-- Arrangements Row -->
+      <div class="arrangements-row">
+        <div class="arrangements-img">
+          <img src="Team-background2.png" alt="Registered Manager and team">
+        </div>
+        <div class="arrangements-content">
+          <h2>Our Arrangements</h2>
+          <p>Our Registered Manager is the Designated Safeguarding Lead and our Director and Nominated Individual is the deputy. Every member of staff completes safeguarding training at induction and refreshes it annually, and safeguarding is a standing item at supervision and at the monthly provider meeting. Every care worker is recruited under Schedule 3 of the Health and Social Care Act 2008 (Regulated Activities) Regulations 2014: an enhanced DBS check including the adult barred list before deployment, a full employment history, verified references and right to work checks. We do not use restraint, and nobody here is trained in or authorised to use it.</p>
+
+          <div class="pipot-info-box">
+            <p><strong>Where a concern is about one of our own staff</strong> we follow the Person in a Position of Trust process: we report it to Kirklees Council, cooperate with any enquiry, consider suspension as a neutral act, notify the Care Quality Commission where the threshold is met, and refer to the Disclosure and Barring Service where the duty applies. The person who reported it is protected, not investigated.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Whistleblowing Row -->
+      <div class="arrangements-row" style="margin-bottom: 0;">
+        <div class="arrangements-content">
+          <h2>Whistleblowing and Going Outside Us</h2>
+          <p>Any member of staff can raise a concern about practice, protected by the Public Interest Disclosure Act 1998. Nobody will be penalised, sidelined or dismissed for speaking up in good faith. The independent whistleblowing charity Protect gives free confidential advice on 0300 123 3939.</p>
+
+          <div class="careful-read-box">
+            <h4>Read this next part carefully.</h4>
+            <p>If your concern is about a manager, or you do not trust us to deal with it, you do not have to come to us first. Go straight to Kirklees Council adult social care on 0300 304 5555, the Emergency Duty Team on 07934 583993, the police on 999 or 101, or the Care Quality Commission on 03000 616161. You do not need our permission.</p>
+          </div>
+        </div>
+
+        <div class="arrangements-img">
+          <img src="Whistleblowing.png" alt="Carers reviewing safeguarding documentation at desk">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left">
+          <h3>Frequently Asked Questions</h3>
+          <p>Ready to talk it through? Call Novaedge Services Limited on 07934 583993, or email hello@novaedgelimited.com. A conversation costs nothing.</p>
+          <a href="get-in-touch.html" class="btn btn-navy">Contact us</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>What happens when I report a safeguarding issue?</span>
+              <div class="faq-toggle-icon">−</div>
+            </div>
+            <div class="faq-answer">
+              We log the issue immediately, take any necessary urgent actions to protect the individual, and report the concern to Kirklees Council Adult Social Care within statutory timelines.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can I remain anonymous when reporting?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              Yes. You can raise a concern anonymously. However, providing contact details helps investigators follow up if further information is required.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Who enforces safeguarding standards?</span>
+              <div class="faq-toggle-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              Kirklees Council adult social care leads local enquiries under the Care Act 2014, supported by the Care Quality Commission (CQC) and West Yorkshire Police.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="footer-watermark">
+      <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+            </div>
+            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+            <div class="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+              <li><a href="why-choose-us.html">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="index.html#funding">Funding your Support</a></li>
+              <li><a href="areas-we-cover.html">Areas we cover</a></li>
+              <li><a href="#referrals">Referrals</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#links">Useful Links</a></li>
+              <li><a href="#feedback">Feedback</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#complaints">Complaints</a></li>
+              <li><a href="safeguarding.html">Safeguarding</a></li>
+              <li><a href="#glossary">Glossary</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+            <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-toggle-icon').textContent = '+';
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            item.querySelector('.faq-toggle-icon').textContent = '−';
+          }
+        });
+      });
+
+      // Mobile Hamburger Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
