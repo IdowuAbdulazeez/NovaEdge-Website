@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #EFF6FF;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       HERO BANNER
+       ========================================================================== */
+    .policy-hero-section {
+      padding-top: 150px;
+      padding-bottom: 50px;
+      background: var(--sky-blue-light);
+      text-align: center;
+    }
+
+    .policy-hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 12px;
+    }
+
+    .policy-hero-section p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       POLICY CONTENT BODY
+       ========================================================================== */
+    .policy-body-section {
+      padding: 70px 0 90px;
+      background: #FFFFFF;
+    }
+
+    .policy-content-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .policy-updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+
+    .policy-block {
+      margin-bottom: 40px;
+    }
+
+    .policy-block h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+    }
+
+    .policy-block p {
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .policy-list {
+      list-style: none;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .policy-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    .policy-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--primary-navy);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .policy-list li strong {
+      color: var(--primary-navy);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 180px 0;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS - MATCHING OTHER PAGES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .policy-hero-section h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .policy-hero-section {
+        padding-top: 110px;
+        padding-bottom: 40px;
+      }
+
+      .policy-hero-section h1 {
+        font-size: 1.7rem;
+      }
+
+      .policy-body-section {
+        padding: 50px 0 70px;
+      }
+
+      .policy-block h2 {
+        font-size: 1.25rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .policy-hero-section h1 {
+        font-size: 1.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:07934583993" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+        <span style="font-weight: 700;">079 3458 3993</span>
+      </a>
+      <a href="get-in-touch.html" class="btn btn-navy">Get in Touch</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="policy-hero-section">
+    <div class="container">
+      <h1>Privacy Policy, How We Handle Your Data</h1>
+      <p>What we collect, why we need it, and how we keep it secure.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="policy-body-section">
+    <div class="container">
+      <div class="policy-content-wrapper">
+        
+        <div class="policy-updated">Last updated: August 2026.</div>
+
+        <!-- WHO WE ARE -->
+        <div class="policy-block">
+          <h2>Who We Are</h2>
+          <p>Novaedge Services Limited is the data controller for the personal information described here. We are registered in England and Wales, company number 16962542, at HQ, 2 St Peter's Street, Huddersfield, West Yorkshire, HD1 1LN.</p>
+          <p>We handle some of the most private information there is: your health, your body, your home and your money. This notice explains what we hold, why, and what you can make us do about it, under the UK General Data Protection Regulation and the Data Protection Act 2018. We do not currently operate a public website, so this notice is published ready for launch and until then applies to the information we hold offline and in our care management systems.</p>
+        </div>
+
+        <!-- WHAT WE COLLECT -->
+        <div class="policy-block">
+          <h2>What We Collect</h2>
+          <ul class="policy-list">
+            <li><strong>Identity and contact details:</strong> name, address, date of birth, telephone, email and emergency contacts</li>
+            <li><strong>Health and care information:</strong> diagnoses, medicines, mobility, risk assessments, care plans, daily notes, incidents and safeguarding records</li>
+            <li><strong>Special category data:</strong> your health, and where relevant your race, religion and sexual orientation, because these shape how care is given</li>
+            <li><strong>Financial information:</strong> funding source, financial assessment outcomes, invoices and payments</li>
+            <li><strong>Records of contact:</strong> enquiries, complaints and correspondence</li>
+            <li><strong>Staff and applicant data:</strong> recruitment records, DBS outcomes, right to work evidence, training and payroll</li>
+          </ul>
+        </div>
+
+        <!-- WHY WE USE IT AND LAWFUL BASES -->
+        <div class="policy-block">
+          <h2>Why We Use It, and Our Lawful Bases</h2>
+          <p>For most of what we do our lawful basis is performance of a contract with you, together with our legal obligations as a care provider and the public interest in the provision of health and social care. For health information and other special category data our condition is Article 9(2)(h) of the UK GDPR: the provision of health or social care and the management of those services. We also rely on Article 9(2)(b) for employment, and Article 9(2)(c) where vital interests are at stake.</p>
+          <p>We do not rely on consent as our default basis for delivering care. Consent can be withdrawn at any moment, and a care record you might need in an emergency should not disappear because a form was ticked differently last month. Where we do ask for consent, for example to share information with a relative or to use a photograph, it is a genuine choice you can withdraw at any time.</p>
+        </div>
+
+        <!-- WHO WE SHARE IT WITH -->
+        <div class="policy-block">
+          <h2>Who We Share It With</h2>
+          <ul class="policy-list">
+            <li><strong>Health and care partners:</strong> your GP, district nurses, hospital teams, pharmacies and the NHS West Yorkshire ICB, where sharing is needed for your care</li>
+            <li><strong>Kirklees Council:</strong> for assessments, funding, contract monitoring and safeguarding</li>
+            <li><strong>The Care Quality Commission:</strong> as our regulator, including statutory notifications</li>
+            <li><strong>Emergency services:</strong> where there is a risk to life</li>
+            <li><strong>Our software providers:</strong> care planning, call monitoring, medication and payroll systems, under contracts requiring UK or adequate country storage</li>
+            <li><strong>Others with your agreement:</strong> relatives, attorneys, advocates or anyone you nominate</li>
+          </ul>
+          <p>We do not sell your data, use it for advertising, or make automated decisions about you.</p>
+        </div>
+
+        <!-- HOW LONG WE KEEP IT AND HOW WE PROTECT IT -->
+        <div class="policy-block">
+          <h2>How Long We Keep It, and How We Protect It</h2>
+          <p>Care records are kept for eight years after our involvement ends, in line with the NHS Records Management Code of Practice, and longer where a safeguarding matter or claim requires it. Unsuccessful applicant records are kept for six months and financial records for six years. Everything is then securely destroyed.</p>
+          <p>Access is restricted to those who need it for their role. Systems are password protected with multi factor authentication where available, devices are encrypted, paper records are locked away, and every member of staff completes data protection training annually.</p>
+        </div>
+
+        <!-- YOUR RIGHTS -->
+        <div class="policy-block">
+          <h2>Your Rights</h2>
+          <ul class="policy-list">
+            <li><strong>Access:</strong> a copy of the information we hold about you, normally within one month and free</li>
+            <li><strong>Rectification:</strong> have inaccurate information corrected</li>
+            <li><strong>Erasure:</strong> ask us to delete information, although care records must be kept for the periods set by law</li>
+            <li><strong>Restriction and objection:</strong> limit how we use your information, or object to particular uses</li>
+            <li><strong>Portability:</strong> receive certain information in a portable electronic format</li>
+            <li><strong>Withdraw consent:</strong> where consent was the basis, without affecting your care</li>
+            <li><strong>Complain:</strong> to us if you wish, and to the regulator at any time</li>
+          </ul>
+          <p>To exercise any of these, contact the Registered Manager on 07934 583993 or hello@novaedgelimited.com. If you are unhappy with how we have handled your information you can complain to the Information Commissioner's Office on 0303 123 1113 or at ico.org.uk, without coming to us first.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="footer-watermark">
+      <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+            </div>
+            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+            <div class="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-we-work.html">How We Work</a></li>
+              <li><a href="why-choose-us.html">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="areas-we-cover.html">Areas we cover</a></li>
+              <li><a href="referrals.html">Referrals</a></li>
+            </ul>
+          </div>          
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+            <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-toggle-icon').textContent = '+';
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            item.querySelector('.faq-toggle-icon').textContent = '−';
+          }
+        });
+      });
+
+      // Mobile Hamburger Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

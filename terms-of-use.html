@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use - Novaedge Services Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #0A2240;
+      --navy-dark: #06162B;
+      --navy-light: #11325D;
+      --accent-orange: #E05A10;
+      --orange-hover: #C54B09;
+      --bright-blue: #1C92D2;
+      --sky-blue-light: #EFF6FF;
+      --peach-bg: #FFF5EE;
+      --peach-border: #FFD2C1;
+      --bg-light: #F4F6F9;
+      --bg-card: #EEF2F7;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --radius-btn: 10px;
+      --radius-nav: 14px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-navy {
+      background-color: var(--primary-navy);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1240px;
+      background: rgba(248, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-nav);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--primary-navy);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ==========================================================================
+       HERO BANNER
+       ========================================================================== */
+    .terms-hero-section {
+      padding-top: 150px;
+      padding-bottom: 50px;
+      background: var(--peach-bg);
+      text-align: center;
+    }
+
+    .terms-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--peach-border);
+      background: #FFFFFF;
+      color: var(--accent-orange);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .terms-hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 16px;
+    }
+
+    .terms-hero-section p {
+      font-size: 0.92rem;
+      color: #475569;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       TERMS CONTENT BODY
+       ========================================================================== */
+    .terms-body-section {
+      padding: 70px 0 90px;
+      background: #FFFFFF;
+    }
+
+    .terms-content-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .terms-updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+
+    .terms-block {
+      margin-bottom: 38px;
+    }
+
+    .terms-block h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      margin-bottom: 14px;
+    }
+
+    .terms-block p {
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer-wrapper {
+      background-color: var(--bright-blue);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 180px 0;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .footer-card {
+      background-color: var(--navy-dark);
+      border-radius: var(--radius-lg);
+      padding: 50px 48px;
+      color: #FFFFFF;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: #E2E8F0;
+    }
+
+    .footer-col h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #94A3B8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 0.88rem;
+      color: #E2E8F0;
+    }
+
+    .footer-cqc-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: var(--text-dark);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS - MATCHING OTHER PAGES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .terms-hero-section h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
+      .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        max-width: none;
+        padding: 10px 14px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .terms-hero-section {
+        padding-top: 110px;
+        padding-bottom: 40px;
+      }
+
+      .terms-hero-section h1 {
+        font-size: 1.7rem;
+      }
+
+      .terms-hero-section p {
+        font-size: 0.88rem;
+      }
+
+      .terms-body-section {
+        padding: 50px 0 70px;
+      }
+
+      .terms-block h2 {
+        font-size: 1.25rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terms-hero-section h1 {
+        font-size: 1.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="Novaedge Services Limited" style="height: 40px; width: auto;">
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="tel:02084081570" class="phone-link" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #041028;">
+        <img src="Call-Icon.svg" alt="Phone" style="width: 18px; height: 18px; object-fit: contain; display: block;">
+        <span style="font-weight: 700;">079 3458 3993</span>
+      </a>
+      <a href="get-in-touch.html" class="btn btn-navy">Get in Touch</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="terms-hero-section">
+    <div class="container">
+      <span class="terms-pill">Terms of Use</span>
+      <h1>Terms of Use For Our Website</h1>
+      <p>These terms cover your use of the Novaedge Services Limited website. They are not your care agreement. If you receive care from us, the terms of that care are in a separate written agreement that you sign, and nothing here changes it. Novaedge Services Limited is registered in England and Wales, company number 16962542.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="terms-body-section">
+    <div class="container">
+      <div class="terms-content-wrapper">
+        
+        <div class="terms-updated">Last updated: August 2026.</div>
+
+        <!-- INFORMATION, NOT ADVICE -->
+        <div class="terms-block">
+          <h2>Information, Not Advice</h2>
+          <p>Everything here is general information about home care, funding and local services. It is not medical, legal or financial advice and it is no substitute for an assessment. Do not delay seeking help from a doctor, NHS 111 or the emergency services because of something you have read here.</p>
+        </div>
+
+        <!-- YOUR CARE AGREEMENT IS SEPARATE -->
+        <div class="terms-block">
+          <h2>Your Care Agreement is Separate</h2>
+          <p>Prices shown here are indicative planning figures. Your actual cost is confirmed in writing after your free home visit and before any care begins. A contract exists only when a written care agreement has been signed. Browsing this site or sending an enquiry does not create one.</p>
+        </div>
+
+        <!-- ACCURACY AND ACCEPTABLE USE -->
+        <div class="terms-block">
+          <h2>Accuracy and Acceptable Use</h2>
+          <p>Benefit figures and third party contact details change, so where we quote a figure we say which year it applies to and where to check it. We may change or remove any part of the site. The text, images and design belong to us. You may read, print and share pages, but not republish them commercially or misuse the site.</p>
+        </div>
+
+        <!-- LINKS, LIABILITY AND LAW -->
+        <div class="terms-block">
+          <h2>Links, Liability and Law</h2>
+          <p>We link to organisations such as Kirklees Council, the NHS and national charities because they are useful. We do not control their content. To the extent permitted by law we are not liable for loss arising from reliance on general information here, although nothing limits our liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot be limited by law. These terms are governed by the law of England and Wales.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <div class="footer-watermark">
+      <img src="Footer-Logo.png" alt="Novaedge Watermark" style="width: 100%; height: 100%; object-fit: contain; object-position: bottom left; display: block; opacity: 1;">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-card">
+        <div class="footer-top-grid">
+          <div class="footer-brand">
+            <div class="logo" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="Logo-3.png" alt="Novaedge Services Limited" style="height: 62px; display: block; object-fit: contain;">
+            </div>
+            <p style="color: #a0aec0; font-size: 13px; line-height: 1.6; margin: 0;">Home Care in Huddersfield and Across Kirklees, Built Around the Person, Not the Rota</p>
+
+            <div class="footer-social">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A4.5 4.5 0 1112 16.5 4.5 4.5 0 0112 7.5zm0 2A2.5 2.5 0 1014.5 12 2.5 2.5 0 0012 9.5zM17.5 6.5a1 1 0 11-1 1 1 1 0 011-1z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="how-we-work.html">How We Work</a></li>
+              <li><a href="why-choose-us.html">Why Choose Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="index.html#services">Our Services</a></li>
+              <li><a href="areas-we-cover.html">Areas we cover</a></li>
+              <li><a href="referrals.html">Referrals</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-cqc-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+              <img src="CQC-Logo.png" alt="CQC Logo" style="height: 38px; display: block; object-fit: contain;">
+              <div style="font-family: sans-serif; line-height: 1.15; font-weight: 700; color: #1e293b; font-size: 15px; display: flex; flex-direction: column;">
+                <span>CareQuality</span>
+                <span>Commission</span>
+              </div>
+            </div>
+            <div style="font-weight: 700; color: #d97706; font-size: 14px; text-align: right;">We haven't inspected this service yet</div>
+          </div>
+
+          <div style="background: #d97706; color: white; padding: 12px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 12px; width: 100%; box-sizing: border-box;">
+            <span style="font-size: 16px; flex-shrink: 0;">ⓘ</span>
+            <span>we have applied for registration, care will begin once registration is granted, and built to the standards the CQC assesses against</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-toggle-icon').textContent = '+';
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            item.querySelector('.faq-toggle-icon').textContent = '−';
+          }
+        });
+      });
+
+      // Mobile Hamburger Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

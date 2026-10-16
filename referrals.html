@@ -186,6 +186,16 @@
       transition: all 0.25s ease;
     }
 
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
     /* ==========================================================================
        REFERRAL HERO SECTION (SLANTED BOTTOM)
        ========================================================================== */
@@ -203,38 +213,37 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 40px;
-      align-items: flex-end; /* Align to bottom of orange card */
+      align-items: flex-end;
       position: relative;
       overflow: hidden;
       clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
     }
 
     .referral-hero-cutout-img {
-      width: 140%;             /* Allows image to overflow container width */
+      width: 140%;
       max-width: none;
       height: auto;
       display: block;
-      margin-left: -20%;       /* Centers scaled image horizontally */
-      margin-bottom: -60px;    /* Pulls image down to the bottom slant */
-      transform: scale(1.6);   /* Increases size by 60% */
+      margin-left: -20%;
+      margin-bottom: -60px;
+      transform: scale(1.6);
       transform-origin: bottom center;
     }
 
-    /* Second Image (Floating on top or in a corner) */
     .hero-second-image {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); /* Centers the image vertically & horizontally */
-      width: 1000px;                     /* Increased width to make it bigger */
-      max-width: 90%;                    /* Ensures it stays responsive on smaller screens */
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      max-width: 90%;
       height: auto;
       opacity: 0.06;
       z-index: 3;
-      background: transparent;           /* Guarantees no box background */
+      background: transparent;
       border: none;
       box-shadow: none;
-      filter: none;                      /* Removed drop-shadow */
+      filter: none;
       pointer-events: none;
     }
 
@@ -663,7 +672,7 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
+       RESPONSIVE BREAKPOINTS - MATCHING HOMEPAGE & OTHER PAGES
        ========================================================================== */
     @media (max-width: 1024px) {
       .referral-hero-card,
@@ -679,17 +688,34 @@
 
       .need-center-img {
         order: -1;
+        margin-bottom: 20px;
       }
 
       .footer-top-grid {
         grid-template-columns: 1fr 1fr 1fr;
       }
+
+      .referral-hero-left h1 {
+        font-size: 2.1rem;
+      }
     }
 
     @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .container {
+        padding: 0 16px;
+        max-width: 100%;
+      }
+
       .navbar {
         top: 12px;
         width: calc(100% - 24px);
+        max-width: none;
         padding: 10px 14px;
       }
 
@@ -699,11 +725,15 @@
         top: calc(100% + 8px);
         left: 0;
         right: 0;
+        width: 100%;
         background: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
         flex-direction: column;
         padding: 16px 20px;
         border-radius: 14px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        gap: 14px;
+        z-index: 1001;
       }
 
       .nav-links.active {
@@ -712,20 +742,153 @@
 
       .hamburger {
         display: flex;
+        flex-shrink: 0;
+      }
+
+      .nav-actions .phone-link {
+        display: none !important;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .referral-hero-wrapper {
+        padding-top: 110px;
+        padding-bottom: 30px;
+      }
+
+      .referral-hero-card {
+        padding: 28px 20px 40px 20px;
+        clip-path: none;
+        border-radius: var(--radius-lg);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .referral-hero-left h1 {
+        font-size: 1.7rem;
+      }
+
+      .referral-hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .referral-contact-pill {
+        max-width: 100%;
+      }
+
+      .referral-hero-cutout-img {
+        width: 110%;
+        max-width: none;
+        margin-left: -5%;
+        margin-bottom: -40px;
+        margin-top: 20px;
+        transform: scale(1.25);
+        transform-origin: bottom center;
+        align-self: center;
+      }
+
+      .hero-second-image {
+        width: 140%;
+        max-width: none;
+        opacity: 0.08;
+        top: 45%;
+      }
+
+      .what-we-need-section,
+      .cannot-take-section,
+      .faq-section {
+        padding: 56px 0;
+      }
+
+      .what-we-need-title {
+        font-size: 1.7rem;
+        margin-bottom: 32px;
+      }
+
+      .need-center-img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .council-banner-card {
+        padding: 32px 18px;
+      }
+
+      .council-banner-card h2 {
+        font-size: 1.6rem;
+      }
+
+      .cannot-take-left h2 {
+        font-size: 1.7rem;
+      }
+
+      .cannot-take-contact-badge {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: 16px;
+      }
+
+      .faq-left {
+        margin-bottom: 20px;
       }
 
       .footer-top-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-card {
+        padding: 28px 16px;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-wrapper {
+        padding: 40px 0 120px !important;
+      }
+
+      .footer-cqc-box > div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-cqc-box > div:first-child > div:last-child {
+        white-space: normal !important;
+        text-align: left !important;
+        font-size: 13px !important;
       }
     }
 
     @media (max-width: 480px) {
       .referral-hero-left h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
 
       .footer-top-grid {
         grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+
+      .referral-hero-cutout-img {
+        transform: scale(1.35);
+        margin-bottom: -50px;
       }
     }
   </style>
@@ -743,7 +906,6 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="how-we-work.html">How We Work</a></li>
         <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#funding">Funding Your Care</a></li>
         <li><a href="areas-we-cover.html">Areas We Cover</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
       </ul>
@@ -789,11 +951,9 @@
           </div>
         </div>
 
-        <!-- Right Side Image (No white box container around it) -->
-         <img src="Referral-Consultation.png" alt="Referral consultation" class="referral-hero-cutout-img">
+        <img src="Referral-Consultation.png" alt="Referral consultation" class="referral-hero-cutout-img">
 
-         <!-- Second Image (Badge, Logo, or Secondary Visual) -->
-         <img src="Referral-Logo.png" alt="Secondary Badge" class="hero-second-image">
+        <img src="Referral-Logo.png" alt="Secondary Badge" class="hero-second-image">
       </div>
     </div>
   </section>
@@ -804,7 +964,6 @@
       <h2 class="what-we-need-title">What We Need From You</h2>
 
       <div class="what-we-need-grid">
-        <!-- Left Column -->
         <div class="need-col">
           <div class="need-item">
             <h3>The Person</h3>
@@ -822,12 +981,10 @@
           </div>
         </div>
 
-        <!-- Center Circle Image -->
         <div class="need-center-img">
           <img src="Medical-Pro.png" alt="Medical professional writing assessment notes">
         </div>
 
-        <!-- Right Column -->
         <div class="need-col">
           <div class="need-item">
             <h3>Within two working days</h3>
@@ -966,8 +1123,7 @@
             <h5>Company</h5>
             <ul>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="#team">Our Team</a></li>
-              <li><a href="areas-we-cover.html">Areas We Cover</a></li>
+              <li><a href="how-we-work.html">How We Work</a></li>
               <li><a href="why-choose-us.html">Why Choose Us</a></li>
             </ul>
           </div>
@@ -976,28 +1132,8 @@
             <h5>Services</h5>
             <ul>
               <li><a href="index.html#services">Our Services</a></li>
-              <li><a href="index.html#funding">Funding your Support</a></li>
               <li><a href="areas-we-cover.html">Areas we cover</a></li>
               <li><a href="referrals.html">Referrals</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h5>Support</h5>
-            <ul>
-              <li><a href="#faq">FAQs</a></li>
-              <li><a href="#links">Useful Links</a></li>
-              <li><a href="#feedback">Feedback</a></li>
-              <li><a href="#accessibility">Accessibility</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h5>Legal</h5>
-            <ul>
-              <li><a href="#complaints">Complaints</a></li>
-              <li><a href="safeguarding.html">Safeguarding</a></li>
-              <li><a href="#glossary">Glossary</a></li>
             </ul>
           </div>
         </div>
@@ -1023,8 +1159,8 @@
         <div class="footer-bottom-bar">
           <div>© 2026 NOVAEDGE Services. All rights reserved.</div>
           <div class="footer-bottom-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Use</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-use.html">Terms of Use</a>
           </div>
         </div>
       </div>
@@ -1057,6 +1193,13 @@
         hamburger.addEventListener('click', () => {
           hamburger.classList.toggle('active');
           navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          });
         });
       }
     });
